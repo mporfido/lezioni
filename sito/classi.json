@@ -4,10 +4,34 @@
     "docente": "Prof. Michele Porfido",
     "classi": [
         {
-            "slug": "esempio",
-            "nome": "Esempio",
-            "descrizione": "Una classe finta, per vedere com'è fatta la pagina. Si può cancellare.",
+            "slug": "1HI",
+            "nome": "1HI",
+            "descrizione": "",
             "colore": "#D7263D"
+        },
+        {
+            "slug": "2HI",
+            "nome": "2HI",
+            "descrizione": "",
+            "colore": "#1B2A4A"
+        },
+        {
+            "slug": "4BI",
+            "nome": "4BI",
+            "descrizione": "",
+            "colore": "#1F9D55"
+        },
+        {
+            "slug": "4BLS",
+            "nome": "4BLS",
+            "descrizione": "",
+            "colore": "#2B6CB0"
+        },
+        {
+            "slug": "5CI",
+            "nome": "5CI",
+            "descrizione": "",
+            "colore": "#5A5E66"
         }
     ]
 }

@@ -42,8 +42,8 @@ GitHub Actions**. Senza quella spunta l'Action gira ma non pubblica niente.
 
 ## Aggiungere una classe
 
-1. `cp -r sito/esempio sito/<classe>` (e si svuota `lezioni.md`), oppure si copia solo
-   `veste/modello-classe.html` dentro la cartella nuova col nome `index.html`;
+1. si crea `sito/<classe>/` e ci si copia dentro `sito/veste/modello-classe.html`
+   col nome `index.html`;
 2. si aggiunge la classe in `sito/classi.json`;
 3. si scrive `sito/<classe>/lezioni.md`.
 
