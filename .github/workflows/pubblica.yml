@@ -1,0 +1,36 @@
+# Pubblica la cartella sito/ su GitHub Pages a ogni push.
+#
+# Non c'è nessuna compilazione: la cartella viene presa così com'è. Perché
+# funzioni, una volta sola, nelle impostazioni del repo: Pages → Source →
+# "GitHub Actions".
+name: Pubblica il sito
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Una pubblicazione alla volta; se ne arriva un'altra, vince la più recente.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  pubblica:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pubblicazione.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: sito
+      - id: pubblicazione
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,72 @@
+/* ============================================================
+   TEMA DI ISTANZA — identità "Quaderno + inchiostro"
+   ============================================================
+   Questo file appartiene all'istanza (come content/ e site.yaml), non
+   all'engine: definisce i design token che style.css e components.css
+   (engine) consumano. Viene caricato DOPO i CSS engine, quindi i valori
+   qui sotto vincono sul fallback neutro definito in style.css.
+   Per cambiare veste grafica si modifica (o sostituisce) solo questo file.
+   ============================================================ */
+
+/* Font self-hosted (woff2, subset latino) */
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/space-grotesk-500.woff2') format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/space-grotesk-600.woff2') format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/space-grotesk-700.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Serif';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/ibm-plex-serif-400.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Serif';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/ibm-plex-serif-500.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Serif';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/ibm-plex-serif-600.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/ibm-plex-mono-400.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/ibm-plex-mono-500.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/ibm-plex-mono-600.woff2') format('woff2')}
+
+:root {
+    /* Colori */
+    --carta: #FBFBF6;        /* sfondo carta */
+    --grid: #D7E0EC;         /* quadretti */
+    --ink: #1B2A4A;          /* testo + primario/interattivo (inchiostro) */
+    --ink-soft: #5A6275;     /* testo secondario */
+    --rossa: #D7263D;        /* penna rossa: accento brand */
+    --rossa-deep: #A81628;
+    --grafite: #5A5E66;
+    --spunta: #1F9D55;       /* successo / completato */
+    --spunta-soft: #EAF7EF;
+    --error: #D7263D;        /* feedback errato */
+    --error-soft: #FCEBED;
+    --line: #DDE2D9;         /* bordi tenui */
+    --surface: #FFFFFF;      /* superfici interne (input, code) */
+
+    /* Colori derivati (velature dell'inchiostro e affini) */
+    --header-bg: rgba(251, 251, 246, 0.9);   /* carta velata dietro l'header */
+    --ink-wash-1: rgba(27, 42, 74, 0.05);    /* hover leggerissimo */
+    --ink-wash-2: rgba(27, 42, 74, 0.06);    /* hover bottoni secondari */
+    --ink-wash-3: rgba(27, 42, 74, 0.07);    /* sfondo code inline */
+    --locked: #A7AEBE;                       /* step bloccati */
+
+    /* Tipografia */
+    --font-disp: 'Space Grotesk', system-ui, sans-serif;   /* titoli / UI */
+    --font-body: 'IBM Plex Serif', Georgia, serif;          /* lettura */
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace; /* numeri / label */
+
+    /* Forma */
+    --radius: 10px;
+    --border: 2px solid var(--ink);
+    --shadow-hard: 6px 6px 0 var(--ink);
+    --shadow-hard-accent: 6px 6px 0 var(--rossa);
+
+    /* Compat: accento per-corso (override inline su .course-card ecc.) */
+    --course-color: var(--ink);
+}
+
+/* Riga di margine rossa verticale, come nel quaderno (decorazione di tema:
+   un tema diverso può ometterla del tutto) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: max(16px, env(safe-area-inset-left));
+    width: 2px;
+    background: rgba(215, 38, 61, 0.30);
+    z-index: 1;
+    pointer-events: none;
+}

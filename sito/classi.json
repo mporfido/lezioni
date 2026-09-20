@@ -1,0 +1,13 @@
+{
+    "titolo": "Lezioni",
+    "sottotitolo": "Il diario delle lezioni, classe per classe: materiale, slide e compiti di ogni giorno.",
+    "docente": "Prof. Michele Porfido",
+    "classi": [
+        {
+            "slug": "esempio",
+            "nome": "Esempio",
+            "descrizione": "Una classe finta, per vedere com'è fatta la pagina. Si può cancellare.",
+            "colore": "#D7263D"
+        }
+    ]
+}

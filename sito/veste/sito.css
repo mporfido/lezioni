@@ -1,0 +1,339 @@
+/* ============================================================
+   Stili strutturali del sito delle lezioni
+   ============================================================
+   I colori, i font e le forme NON stanno qui: arrivano dai design token di
+   tema.css, che è lo stesso tema "Quaderno + inchiostro" di math-rocks. Qui
+   c'è solo come sono messi gli elementi in pagina (header, elenco dei giorni,
+   sezioni di un giorno, slide). Cambiare veste = cambiare tema.css.
+   ============================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { overflow-x: clip; }
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.65;
+    color: var(--ink);
+    background-color: var(--carta);
+    /* Foglio a quadretti, come su math-rocks */
+    background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 26px 26px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--rossa);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+img, svg, video, iframe { max-width: 100%; }
+
+/* --- Testata e piede ------------------------------------------------- */
+
+.testata {
+    background-color: var(--header-bg);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--ink);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.testata nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.marchio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-disp);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.marchio span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    flex: none;
+    border: 2px solid var(--rossa);
+    border-radius: 5px;
+    color: var(--rossa);
+    font-size: 1.05rem;
+    line-height: 1;
+}
+
+.testata .dove {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+}
+
+.testata .dove:hover { color: var(--ink); }
+
+.contenuto {
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    padding: 0 2rem;
+    min-height: calc(100dvh - 240px);
+}
+
+.piede {
+    border-top: 2px solid var(--ink);
+    padding: 2rem;
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 4rem;
+}
+
+/* --- Titoli di pagina ------------------------------------------------ */
+
+h1.titolo {
+    font-family: var(--font-disp);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    font-size: clamp(1.9rem, 5.5vw, 2.9rem);
+    margin-bottom: 0.5rem;
+}
+
+p.sottotitolo {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--ink-soft);
+    margin-bottom: 2.5rem;
+}
+
+/* --- Elenco delle classi (home) -------------------------------------- */
+
+.classi {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.classe-card {
+    display: block;
+    background: var(--carta);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.classe-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 var(--classe-colore, var(--ink));
+}
+
+.classe-card h2 {
+    font-family: var(--font-disp);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.classe-card p { color: var(--ink-soft); }
+
+.classe-card .quante {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin-top: 1rem;
+}
+
+/* --- I giorni di lezione --------------------------------------------- */
+
+.giorni { display: flex; flex-direction: column; gap: 2rem; }
+
+.giorno {
+    background: var(--surface);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    scroll-margin-top: 6rem;
+}
+
+.giorno.oggi { box-shadow: var(--shadow-hard-accent); }
+
+.giorno > h2 {
+    font-family: var(--font-disp);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-size: 1.4rem;
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.giorno > h2 .etichetta-oggi {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--rossa);
+    border: 2px solid var(--rossa);
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+}
+
+.note > * + * { margin-top: 0.8rem; }
+
+.sezione { margin-top: 1.5rem; }
+
+.sezione > h3 {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin-bottom: 0.6rem;
+}
+
+.sezione ul { list-style: none; }
+
+.sezione li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.sezione li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--rossa);
+    font-family: var(--font-mono);
+}
+
+.sezione--casa li::before { content: "✓"; color: var(--spunta); }
+.sezione--slide li::before { content: "▸"; }
+
+a { color: var(--ink); text-decoration-color: var(--rossa); text-underline-offset: 3px; }
+a:hover { color: var(--rossa); }
+
+code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--ink-wash-3);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+}
+
+blockquote {
+    border-left: 3px solid var(--rossa);
+    padding-left: 1rem;
+    color: var(--ink-soft);
+}
+
+.vuoto {
+    border: 2px dashed var(--line);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    text-align: center;
+    color: var(--ink-soft);
+}
+
+/* --- Slide ------------------------------------------------------------ */
+
+body.slide { overflow: hidden; }
+
+.mazzo {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-corrente {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 4rem 3rem 2rem;
+    font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+    overflow-y: auto;
+}
+
+.slide-corrente h1, .slide-corrente h2, .slide-corrente h3 {
+    font-family: var(--font-disp);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.slide-corrente h1 { font-size: clamp(2rem, 6vw, 3.4rem); }
+.slide-corrente h2 { font-size: clamp(1.6rem, 4.5vw, 2.5rem); }
+.slide-corrente > * + * { margin-top: 0.9rem; }
+.slide-corrente ul, .slide-corrente ol { padding-left: 1.5rem; }
+.slide-corrente li { margin-bottom: 0.5rem; }
+.slide-corrente img { display: block; margin: 0 auto; max-height: 55dvh; }
+
+.barra {
+    border-top: 2px solid var(--ink);
+    background: var(--header-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 1.5rem;
+    padding-bottom: max(0.6rem, env(safe-area-inset-bottom));
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+}
+
+.barra button {
+    font-family: var(--font-disp);
+    font-weight: 600;
+    font-size: 1rem;
+    background: var(--carta);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    padding: 0.35rem 0.9rem;
+    cursor: pointer;
+}
+
+.barra button:hover { background: var(--ink); color: var(--carta); }
+.barra button[disabled] { opacity: 0.35; pointer-events: none; }
+.barra .titolo-mazzo { text-align: center; flex: 1; color: var(--ink); }
+
+@media print {
+    body.slide { overflow: visible; }
+    .barra, .testata { display: none; }
+}
