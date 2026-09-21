@@ -2,12 +2,30 @@
    Gli attrezzi comuni a tutte le pagine del sito
    ============================================================
    Il sito non ha un passaggio di compilazione: i file markdown che stanno nel
-   repo sono gli stessi che il browser legge e trasforma in pagina (in
-   pubblicazione arrivano travestiti da script, vedi leggiContenuto). Qui ci
+   repo sono gli stessi che il browser scarica e trasforma in pagina. Qui ci
    sono i pezzi che servono dappertutto — testata e piede, il markdown, le
    formule, le date in italiano — così le pagine vere (home, classe, slide)
    contengono solo la loro logica.
    ============================================================ */
+
+/* Le lavagne di scuola hanno browser vecchi di anni. La libreria del markdown
+   usa due funzioni arrivate in Chrome solo nel 2021 (`.at()` e `Object.hasOwn`):
+   senza, ogni lettura si rompe e la pagina dice che il file non c'è. Qui le si
+   aggiunge a mano, solo dove mancano. Girano prima di qualunque lettura, perché
+   la libreria le chiama soltanto quando legge un file, non quando si carica. */
+function aggiungiSeManca(oggetto, nome, funzione) {
+    if (!oggetto[nome]) {
+        Object.defineProperty(oggetto, nome, { value: funzione, writable: true, configurable: true });
+    }
+}
+function elementoInPosizione(n) {
+    n = Math.trunc(n) || 0;
+    if (n < 0) n += this.length;
+    return n < 0 || n >= this.length ? undefined : this[n];
+}
+aggiungiSeManca(Array.prototype, 'at', elementoInPosizione);
+aggiungiSeManca(String.prototype, 'at', elementoInPosizione);
+aggiungiSeManca(Object, 'hasOwn', (oggetto, chiave) => Object.prototype.hasOwnProperty.call(oggetto, chiave));
 
 const GIORNI = ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'];
 const MESI = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio',
@@ -63,33 +81,10 @@ function inHtml(tokens, tuttiITokens) {
     return marked.parser(gruppo);
 }
 
-/* Il filtro di rete di alcune scuole blocca il download dei file .md e .json,
-   e sulle lavagne le pagine restavano vuote. Pubblicando, ogni file ne riceve
-   una copia in forma di script (lezioni.md → lezioni.md.js, la fa
-   .github/incorpora.py), e uno script passa dove un file di testo viene
-   fermato. Se la copia non c'è — in locale, per esempio — si scarica il file
-   vero come sempre. Il numero in coda all'indirizzo evita copie vecchie. */
-function leggiCopia(percorso) {
-    return new Promise((risolvi) => {
-        const chiave = new URL(`${percorso}.js`, location.href).href;
-        const script = document.createElement('script');
-        script.src = `${chiave}?v=${Date.now()}`;
-        script.onload = () => { script.remove(); risolvi((window.CONTENUTI || {})[chiave]); };
-        script.onerror = () => { script.remove(); risolvi(undefined); };
-        document.head.appendChild(script);
-    });
-}
-
-async function leggiContenuto(percorso) {
-    const copia = await leggiCopia(percorso);
-    if (typeof copia === 'string') return copia;
+async function scaricaMarkdown(percorso) {
     const risposta = await fetch(percorso, { cache: 'no-cache' });
     if (!risposta.ok) throw new Error(`${percorso}: ${risposta.status}`);
     return await risposta.text();
-}
-
-async function scaricaMarkdown(percorso) {
-    return leggiContenuto(percorso);
 }
 
 /* MathJax arriva dalla CDN come su math-rocks, con gli stessi delimitatori:
@@ -140,7 +135,8 @@ function disegnaPiede(testo) {
 
 async function leggiConfigurazione(percorso) {
     try {
-        return JSON.parse(await leggiContenuto(percorso));
+        const risposta = await fetch(percorso, { cache: 'no-cache' });
+        if (risposta.ok) return await risposta.json();
     } catch (errore) { /* la home sa cavarsela anche senza */ }
     return { titolo: 'Lezioni', docente: '', classi: [] };
 }

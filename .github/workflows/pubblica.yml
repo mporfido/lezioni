@@ -1,9 +1,8 @@
 # Pubblica la cartella sito/ su GitHub Pages a ogni push.
 #
-# L'unico passaggio prima di pubblicare è incorpora.py: fa una copia in forma
-# di script di ogni file .md e .json, perché il filtro di rete di alcune scuole
-# blocca quei file e le pagine sulle lavagne si aprivano vuote. Perché funzioni,
-# una volta sola, nelle impostazioni del repo: Pages → Source → "GitHub Actions".
+# Non c'è nessuna compilazione: la cartella viene presa così com'è. Perché
+# funzioni, una volta sola, nelle impostazioni del repo: Pages → Source →
+# "GitHub Actions".
 name: Pubblica il sito
 
 on:
@@ -30,7 +29,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      - run: python3 .github/incorpora.py sito
       - uses: actions/upload-pages-artifact@v3
         with:
           path: sito

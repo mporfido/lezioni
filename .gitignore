@@ -1,5 +1,1 @@
 .DS_Store
-
-# Copie dei contenuti in forma di script: nascono solo nella pubblicazione
-sito/**/*.md.js
-sito/**/*.json.js
