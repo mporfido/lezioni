@@ -2,7 +2,8 @@
    Gli attrezzi comuni a tutte le pagine del sito
    ============================================================
    Il sito non ha un passaggio di compilazione: i file markdown che stanno nel
-   repo sono gli stessi che il browser scarica e trasforma in pagina. Qui ci
+   repo sono gli stessi che il browser legge e trasforma in pagina (in
+   pubblicazione arrivano travestiti da script, vedi leggiContenuto). Qui ci
    sono i pezzi che servono dappertutto — testata e piede, il markdown, le
    formule, le date in italiano — così le pagine vere (home, classe, slide)
    contengono solo la loro logica.
@@ -62,10 +63,33 @@ function inHtml(tokens, tuttiITokens) {
     return marked.parser(gruppo);
 }
 
-async function scaricaMarkdown(percorso) {
+/* Il filtro di rete di alcune scuole blocca il download dei file .md e .json,
+   e sulle lavagne le pagine restavano vuote. Pubblicando, ogni file ne riceve
+   una copia in forma di script (lezioni.md → lezioni.md.js, la fa
+   .github/incorpora.py), e uno script passa dove un file di testo viene
+   fermato. Se la copia non c'è — in locale, per esempio — si scarica il file
+   vero come sempre. Il numero in coda all'indirizzo evita copie vecchie. */
+function leggiCopia(percorso) {
+    return new Promise((risolvi) => {
+        const chiave = new URL(`${percorso}.js`, location.href).href;
+        const script = document.createElement('script');
+        script.src = `${chiave}?v=${Date.now()}`;
+        script.onload = () => { script.remove(); risolvi((window.CONTENUTI || {})[chiave]); };
+        script.onerror = () => { script.remove(); risolvi(undefined); };
+        document.head.appendChild(script);
+    });
+}
+
+async function leggiContenuto(percorso) {
+    const copia = await leggiCopia(percorso);
+    if (typeof copia === 'string') return copia;
     const risposta = await fetch(percorso, { cache: 'no-cache' });
     if (!risposta.ok) throw new Error(`${percorso}: ${risposta.status}`);
     return await risposta.text();
+}
+
+async function scaricaMarkdown(percorso) {
+    return leggiContenuto(percorso);
 }
 
 /* MathJax arriva dalla CDN come su math-rocks, con gli stessi delimitatori:
@@ -116,8 +140,7 @@ function disegnaPiede(testo) {
 
 async function leggiConfigurazione(percorso) {
     try {
-        const risposta = await fetch(percorso, { cache: 'no-cache' });
-        if (risposta.ok) return await risposta.json();
+        return JSON.parse(await leggiContenuto(percorso));
     } catch (errore) { /* la home sa cavarsela anche senza */ }
     return { titolo: 'Lezioni', docente: '', classi: [] };
 }
