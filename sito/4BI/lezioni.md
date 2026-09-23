@@ -13,9 +13,9 @@ una formula.
 - [Tre problemi su punti e rette](../slides/?deck=2026-09-21-4BI)
 
 ### A casa
-- Ripeti la lezione [Rette incidenti, parallele e perpendicolari](https://mporfido.github.io/math-rocks/course/punti-e-rette-nel-piano/posizione-reciproca-di-due-rette/punto-comune-a-due-rette/) dall'inizio alla fine: mercoledì si lavora su quella.
+- Ripeti la lezione [Rette incidenti, parallele e perpendicolari](https://mporfido.github.io/math-rocks/course/punti-e-rette-nel-piano/posizione-reciproca-di-due-rette/punto-comune-a-due-rette/) dall'inizio alla fine: giovedì si lavora su quella.
 
-## 2026-09-23 — Rette che si incontrano, o no
+## 2026-09-24 — Rette che si incontrano, o no
 
 Esercizi in classe sulla posizione reciproca di due rette: dove si tagliano, quando
 non si tagliano mai, quando si tagliano ad angolo retto.
@@ -24,4 +24,4 @@ non si tagliano mai, quando si tagliano ad angolo retto.
 - [Rette incidenti, parallele e perpendicolari](https://mporfido.github.io/math-rocks/course/punti-e-rette-nel-piano/posizione-reciproca-di-due-rette/punto-comune-a-due-rette/)
 
 ### Slide
-- [Rette che si incontrano, o no](../slides/?deck=2026-09-23-4BI)
+- [Rette che si incontrano, o no](../slides/?deck=2026-09-24-4BI)
