@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Pagina non trovata — Lezioni</title>
+    <meta name="theme-color" content="#FBFBF6">
+    <script>
+    /* ============================================================
+       Gli indirizzi corti di una singola lezione
+       ============================================================
+       GitHub Pages non sa cosa sia /4BLS/2026-09-23: non è un file, e quindi
+       serve questa pagina. Qui l'indirizzo corto viene tradotto in quello che
+       la pagina della classe capisce — /4BLS/?giorno=2026-09-23 — e il salto è
+       immediato: chi ha cliccato il link non vede passare niente.
+
+       Se invece l'indirizzo non ha la forma di una data, resta quello che c'è
+       scritto nel corpo della pagina: un cartello con la strada per la home.
+       ============================================================ */
+    (function () {
+        var pezzi = location.pathname.split('/').filter(function (p) { return p.length; });
+        var ultimo = pezzi.length ? decodeURIComponent(pezzi[pezzi.length - 1]) : '';
+        var due = function (n) { return ('0' + n).slice(-2); };
+
+        /* Le stesse due scritture accettate nei titoli dei giorni, col trattino
+           al posto della barra perché dentro un indirizzo la barra separa. */
+        var iso = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(ultimo);
+        var ita = /^(\d{1,2})-(\d{1,2})-(\d{4})$/.exec(ultimo);
+        var data = null;
+        if (iso) data = iso[1] + '-' + due(iso[2]) + '-' + due(iso[3]);
+        else if (ita) data = ita[3] + '-' + due(ita[2]) + '-' + due(ita[1]);
+
+        if (data && pezzi.length >= 2) {
+            location.replace('/' + pezzi.slice(0, -1).join('/') + '/?giorno=' + data);
+            return;
+        }
+
+        /* Il sito sta in una sottocartella (mporfido.github.io/lezioni): la
+           prima parte dell'indirizzo è la sua radice, ed è da lì che si riparte. */
+        var radice = pezzi.length ? '/' + pezzi[0] + '/' : '/';
+        document.addEventListener('DOMContentLoaded', function () {
+            ['veste/sito.css', 'veste/tema.css'].forEach(function (foglio) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = radice + foglio;
+                document.head.appendChild(link);
+            });
+            var casa = document.querySelectorAll('a.marchio, a.ritorno');
+            for (var i = 0; i < casa.length; i++) casa[i].href = radice;
+        });
+    })();
+    </script>
+</head>
+<body>
+    <header class="testata">
+        <nav><a class="marchio" href="/"><span aria-hidden="true">✓</span>Lezioni</a></nav>
+    </header>
+    <main class="contenuto">
+        <h1 class="titolo">Questa pagina non c'è</h1>
+        <div class="vuoto">
+            <p>L'indirizzo di una lezione è fatto così: <code>/4BLS/2026-09-23</code>.</p>
+            <p><a class="ritorno" href="/">Torna all'elenco delle classi</a></p>
+        </div>
+    </main>
+</body>
+</html>

@@ -208,6 +208,11 @@ p.sottotitolo {
     padding: 0.1rem 0.6rem;
 }
 
+/* La data del giorno è un link a quel giorno da solo: si vede che è cliccabile
+   solo passandoci sopra, altrimenti l'elenco si riempirebbe di sottolineature. */
+.giorno > h2 .permalink { color: inherit; text-decoration: none; }
+.giorno > h2 .permalink:hover { color: var(--rossa); text-decoration: underline; }
+
 .note > * + * { margin-top: 0.8rem; }
 
 .sezione { margin-top: 1.5rem; }

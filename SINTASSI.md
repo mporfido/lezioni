@@ -76,3 +76,18 @@ $$\vec{v} = (v_x,\ v_y)$$
   per tornare indietro, `F` per lo schermo intero. Sul telefono o sul tablet si tocca la
   metà destra o sinistra dello schermo. Il numero della slide resta nell'indirizzo:
   ricaricando la pagina si riprende da lì.
+
+## Il link a una lezione sola
+
+Dentro la pagina di una classe ogni data è cliccabile: si apre quel giorno da solo,
+senza gli altri — comodo da mandare a chi era assente.
+
+L'indirizzo si può anche scrivere a mano, mettendo la data dopo la classe:
+
+```
+https://mporfido.github.io/lezioni/4BLS/2026-09-23
+```
+
+Va bene anche `23-09-2026`. In casa, servendo la cartella `sito/` in locale, la forma
+corta non funziona (la traduce `404.html`, che solo GitHub Pages usa): lì si scrive
+`4BLS/?giorno=2026-09-23`, che è esattamente ciò che la pagina legge.
