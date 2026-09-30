@@ -25,3 +25,15 @@ non si tagliano mai, quando si tagliano ad angolo retto.
 
 ### Slide
 - [Rette che si incontrano, o no](../slides/?deck=2026-09-24-4BI)
+
+## 2026-09-30 — La parabola come luogo di punti
+
+Esercizi in classe sulla prima lezione della parabola: il faro, la costa e le barche
+che restano alla stessa distanza da tutti e due. Dalla definizione all'equazione, e
+ritorno.
+
+### Link
+- [La parabola come luogo di punti](https://mporfido.github.io/math-rocks/course/parabola-nel-piano/la-parabola-come-luogo/il-faro-e-la-costa/)
+
+### Slide
+- [Il faro e la costa](../slides/?deck=2026-09-30-4BI)
