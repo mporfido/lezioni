@@ -23,3 +23,10 @@ Cinque espressioni da risolvere solo con le proprietà delle potenze, senza mai 
 
 ### A casa
 - [Divisori e multipli su Math Rocks](https://mporfido.github.io/math-rocks/course/numeri-naturali/divisori-multipli/): leggere la lezione e fare le attività
+
+## 2026-10-12 — Interrogazione: le proprietà delle potenze
+
+Cinque espressioni per l'interrogazione, da svolgere solo con le proprietà delle potenze, senza calcolarle: si deve arrivare a una potenza sola. Sono semplici, al massimo qualche parentesi tonda; nell'ultima le basi sono diverse ma gli esponenti uguali.
+
+### Link
+- [Interrogazione: proprietà delle potenze](https://mporfido.github.io/math-rocks/tools/potenze/?ex=3%5E4%20%2A%203%5E5%20%3A%203%5E6&ex=%282%5E3%29%5E4%20%3A%202%5E7&ex=%287%5E2%20%2A%207%5E3%29%5E2%20%3A%207%5E6&ex=%284%5E9%20%3A%204%5E5%29%5E3%20%3A%20%284%5E2%29%5E5&ex=10%5E5%20%3A%205%5E5%20%2A%20%282%5E3%29%5E2&mode=powers&noeval=1&steps=1&titolo=Interrogazione%3A%20propriet%C3%A0%20delle%20potenze&noeditor=1)
