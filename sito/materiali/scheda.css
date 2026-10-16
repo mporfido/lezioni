@@ -111,7 +111,7 @@ table.passi {
 table.passi th,
 table.passi td {
     border: 1.5px solid var(--linea);
-    padding: 0.45rem 0.6rem;
+    padding: 0.35rem 0.6rem;
     vertical-align: middle;
     text-align: left;
 }
@@ -141,11 +141,11 @@ table.passi thead th small {
     color: var(--ink-soft);
     margin-top: 0.15rem;
 }
-table.passi td { height: 3.1rem; font-size: 1.1rem; }
+table.passi td { height: 2.9rem; font-size: 1.05rem; line-height: 1.3; }
 table.passi td.numero { font-size: 1.25rem; font-weight: 700; white-space: nowrap; }
 table.passi tr.esempio td { background: var(--fondo-esempio); }
 table.passi td .perche { display: block; font-size: 0.85rem; color: var(--ink-soft); }
-table.passi td .scelta { color: var(--ink-soft); letter-spacing: 0.04em; }
+table.passi td .scelta { display: block; color: var(--ink-soft); letter-spacing: 0.04em; }
 table.passi td.vuoto, table.passi td.cerchia { background: #fff; }
 table.passi td.vuoto::after {
     /* la riga su cui scrivere a mano */
@@ -185,3 +185,5 @@ body.con-soluzioni .soluzioni { display: block; }
     table.passi thead { display: table-header-group; }
     table.passi tr { break-inside: avoid; page-break-inside: avoid; }
 }
+
+p.ricorda { margin-top: 0.6rem; font-size: 0.95rem; max-width: none; }
