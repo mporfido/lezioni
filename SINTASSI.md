@@ -98,9 +98,9 @@ Schede riusabili, una pagina HTML per argomento, pensate per essere scaricate in
 (pulsante «Scarica PDF» → «Salva come PDF»). Lo stile sta in `materiali/scheda.css`:
 font Atkinson Hyperlegible, corpo grande, foglio A4 orizzontale in stampa; ogni
 `<section class="foglio">` comincia una pagina nuova. Le tabelle a passi usano
-`<table class="passi">`; le caselle da compilare sono `<td class="vuoto">` (riga per
-scrivere) o `<td class="cerchia">` (opzioni da cerchiare); le soluzioni stanno in
-`<div class="soluzioni">` e si stampano solo con la spunta «con le soluzioni».
+`<table class="passi">`; le caselle da compilare sono `<td class="vuoto"></td>`, vuote
+davvero (niente righe né suggerimenti dentro). Niente soluzioni sulle schede. I margini
+di stampa sono a zero apposta, così il PDF esce senza intestazioni del browser.
 
 Una scheda nuova: copia di una esistente in `sito/materiali/<argomento>.html`, poi la
 sua card in `sito/materiali/index.html`. Nella home la voce «Materiali» sta in

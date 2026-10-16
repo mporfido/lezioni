@@ -12,7 +12,6 @@
     <div class="comandi">
         <a href="./">← Materiali</a>
         <button type="button" onclick="window.print()">Scarica PDF</button>
-        <label><input type="checkbox" onchange="document.body.classList.toggle('con-soluzioni', this.checked)"> con le soluzioni</label>
         <span class="nota">Nella finestra di stampa scegli «Salva come PDF»: il foglio è già orizzontale.</span>
     </div>
 
@@ -23,30 +22,32 @@
 
         <div class="regole">
             <div>
-                <h3>Ricorda: numeri concordi</h3>
-                <p><strong>Sommo</strong> i valori assoluti e <strong>mantengo il segno</strong>.</p>
+                <h3>Concordi = stesso segno</h3>
+                <p><strong>Sommo</strong> i valori assoluti.<br>
+                   Il risultato ha il <strong>segno comune</strong>.</p>
             </div>
             <div>
-                <h3>Ricorda: numeri discordi</h3>
-                <p><strong>Sottraggo</strong> i valori assoluti e uso il <strong>segno del numero con valore assoluto maggiore</strong>.</p>
+                <h3>Discordi = segni diversi</h3>
+                <p><strong>Sottraggo</strong> i valori assoluti: il più grande meno il più piccolo.<br>
+                   Il risultato ha il segno del numero con il <strong>valore assoluto più grande</strong>.</p>
             </div>
         </div>
 
         <h2>Esempi svolti</h2>
         <table class="passi">
-<colgroup><col style="width:18%"><col style="width:18%"><col style="width:20%"><col style="width:28%"><col style="width:16%"></colgroup>
+<colgroup><col style="width:17%"><col style="width:19%"><col style="width:23%"><col style="width:26%"><col style="width:15%"></colgroup>
 <thead><tr>
 <th><span class="passo">1</span>Somma</th>
-<th><span class="passo">2</span>Concordi o discordi?</th>
-<th><span class="passo">3</span>Valore assoluto</th>
-<th><span class="passo">4</span>Segno</th>
+<th><span class="passo">2</span>Concordi o discordi?<small>stesso segno o segni diversi?</small></th>
+<th><span class="passo">3</span>Calcolo il valore assoluto<small>concordi → sommo · discordi → sottraggo (grande − piccolo)</small></th>
+<th><span class="passo">4</span>Decido il segno<small>concordi → il segno comune · discordi → il segno del più grande in valore assoluto</small></th>
 <th><span class="passo">5</span>Risultato</th>
 </tr></thead>
 <tbody>
-<tr class="esempio"><td class="numero">(+8) + (+7)</td><td>Concordi<br><strong>Sommo</strong></td><td><strong>8 + 7 = 15</strong></td><td>Mantengo il segno<br><strong>+</strong></td><td class="numero"><strong>+15</strong></td></tr>
-<tr class="esempio"><td class="numero">(+8) + (−7)</td><td>Discordi<br><strong>Sottraggo</strong></td><td><strong>8 − 7 = 1</strong></td><td>Segno del valore assoluto maggiore<br><strong>+</strong></td><td class="numero"><strong>+1</strong></td></tr>
-<tr class="esempio"><td class="numero">(−8) + (+7)</td><td>Discordi<br><strong>Sottraggo</strong></td><td><strong>8 − 7 = 1</strong></td><td>Segno del valore assoluto maggiore<br><strong>−</strong></td><td class="numero"><strong>−1</strong></td></tr>
-<tr class="esempio"><td class="numero">(−8) + (−7)</td><td>Concordi<br><strong>Sommo</strong></td><td><strong>8 + 7 = 15</strong></td><td>Mantengo il segno<br><strong>−</strong></td><td class="numero"><strong>−15</strong></td></tr>
+<tr class="esempio"><td class="numero">(+8) + (+7)</td><td><strong>concordi</strong><span class="perche">tutti e due positivi</span></td><td>8 + 7 = <strong>15</strong><span class="perche">concordi → sommo</span></td><td><strong>+</strong><span class="perche">il segno che hanno in comune</span></td><td class="numero"><strong>+15</strong></td></tr>
+<tr class="esempio"><td class="numero">(+8) + (−7)</td><td><strong>discordi</strong><span class="perche">uno positivo, uno negativo</span></td><td>8 − 7 = <strong>1</strong><span class="perche">discordi → sottraggo</span></td><td><strong>+</strong><span class="perche">quello di (+8), che ha il valore assoluto più grande</span></td><td class="numero"><strong>+1</strong></td></tr>
+<tr class="esempio"><td class="numero">(−8) + (+7)</td><td><strong>discordi</strong><span class="perche">uno positivo, uno negativo</span></td><td>8 − 7 = <strong>1</strong><span class="perche">discordi → sottraggo</span></td><td><strong>−</strong><span class="perche">quello di (−8), che ha il valore assoluto più grande</span></td><td class="numero"><strong>−1</strong></td></tr>
+<tr class="esempio"><td class="numero">(−8) + (−7)</td><td><strong>concordi</strong><span class="perche">tutti e due negativi</span></td><td>8 + 7 = <strong>15</strong><span class="perche">concordi → sommo</span></td><td><strong>−</strong><span class="perche">il segno che hanno in comune</span></td><td class="numero"><strong>−15</strong></td></tr>
 </tbody>
         </table>
     </section>
@@ -56,46 +57,29 @@
             <h1>Ora tocca a te</h1>
             <span class="nome">Nome ______________________ &nbsp; Data __________</span>
         </div>
-        <p>Completa le caselle vuote, colonna dopo colonna. Dove ci sono due possibilità, cerchia quella giusta.</p>
+        <p>Completa le caselle vuote, colonna dopo colonna.</p>
         <table class="passi">
-<colgroup><col style="width:18%"><col style="width:18%"><col style="width:20%"><col style="width:28%"><col style="width:16%"></colgroup>
+<colgroup><col style="width:17%"><col style="width:19%"><col style="width:23%"><col style="width:26%"><col style="width:15%"></colgroup>
 <thead><tr>
 <th><span class="passo">1</span>Somma</th>
-<th><span class="passo">2</span>Concordi o discordi?</th>
-<th><span class="passo">3</span>Valore assoluto</th>
-<th><span class="passo">4</span>Segno</th>
+<th><span class="passo">2</span>Concordi o discordi?<small>stesso segno o segni diversi?</small></th>
+<th><span class="passo">3</span>Calcolo il valore assoluto<small>concordi → sommo · discordi → sottraggo (grande − piccolo)</small></th>
+<th><span class="passo">4</span>Decido il segno<small>concordi → il segno comune · discordi → il segno del più grande in valore assoluto</small></th>
 <th><span class="passo">5</span>Risultato</th>
 </tr></thead>
 <tbody>
-<tr><td class="numero">(−8) + (−12)</td><td>Concordi<br><strong>Sommo</strong></td><td><strong>8 + 12 = 20</strong></td><td>Mantengo il segno<br><strong>−</strong></td><td class="vuoto"></td></tr>
-<tr><td class="numero">(+12) + (−7)</td><td>Discordi<br><strong>Sottraggo</strong></td><td><strong>12 − 7 = 5</strong></td><td>Segno del valore assoluto maggiore<br><strong>+</strong></td><td class="vuoto"></td></tr>
-<tr><td class="numero">(+6) + (+9)</td><td>Concordi<br><strong>Sommo</strong></td><td><strong>6 + 9 = 15</strong></td><td class="cerchia"><span class="scelta">+ &nbsp;/&nbsp; −</span></td><td class="vuoto"></td></tr>
-<tr><td class="numero">(−15) + (+6)</td><td>Discordi<br><strong>Sottraggo</strong></td><td><strong>15 − 6 = 9</strong></td><td class="cerchia"><span class="scelta">+ &nbsp;/&nbsp; −</span></td><td class="vuoto"></td></tr>
-<tr><td class="numero">(+4) + (−11)</td><td>Discordi<br><strong>Sottraggo</strong></td><td class="vuoto"></td><td class="cerchia"><span class="scelta">+ &nbsp;/&nbsp; −</span></td><td class="vuoto"></td></tr>
-<tr><td class="numero">(−7) + (−13)</td><td>Concordi<br><strong>Sommo</strong></td><td class="vuoto"></td><td class="cerchia"><span class="scelta">+ &nbsp;/&nbsp; −</span></td><td class="vuoto"></td></tr>
-<tr><td class="numero">(−20) + (+35)</td><td class="cerchia"><span class="scelta">concordi / discordi</span><span class="scelta">sommo / sottraggo</span></td><td class="vuoto"></td><td class="cerchia"><span class="scelta">+ &nbsp;/&nbsp; −</span></td><td class="vuoto"></td></tr>
-<tr><td class="numero">(+14) + (+27)</td><td class="cerchia"><span class="scelta">concordi / discordi</span><span class="scelta">sommo / sottraggo</span></td><td class="vuoto"></td><td class="cerchia"><span class="scelta">+ &nbsp;/&nbsp; −</span></td><td class="vuoto"></td></tr>
-<tr><td class="numero">(−32) + (+19)</td><td class="cerchia"><span class="scelta">concordi / discordi</span><span class="scelta">sommo / sottraggo</span></td><td class="vuoto"></td><td class="cerchia"><span class="scelta">+ &nbsp;/&nbsp; −</span></td><td class="vuoto"></td></tr>
-<tr><td class="numero">(+25) + (−40)</td><td class="cerchia"><span class="scelta">concordi / discordi</span><span class="scelta">sommo / sottraggo</span></td><td class="vuoto"></td><td class="cerchia"><span class="scelta">+ &nbsp;/&nbsp; −</span></td><td class="vuoto"></td></tr>
+<tr><td class="numero">(−8) + (−5)</td><td><strong>concordi</strong><span class="perche">tutti e due negativi</span></td><td>8 + 5 = <strong>13</strong><span class="perche">concordi → sommo</span></td><td><strong>−</strong><span class="perche">il segno che hanno in comune</span></td><td class="vuoto"></td></tr>
+<tr><td class="numero">(+12) + (−7)</td><td><strong>discordi</strong><span class="perche">uno positivo, uno negativo</span></td><td>12 − 7 = <strong>5</strong><span class="perche">discordi → sottraggo</span></td><td><strong>+</strong><span class="perche">quello di (+12), che ha il valore assoluto più grande</span></td><td class="vuoto"></td></tr>
+<tr><td class="numero">(+6) + (+9)</td><td><strong>concordi</strong><span class="perche">tutti e due positivi</span></td><td>6 + 9 = <strong>15</strong><span class="perche">concordi → sommo</span></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">(−15) + (+6)</td><td><strong>discordi</strong><span class="perche">uno positivo, uno negativo</span></td><td>15 − 6 = <strong>9</strong><span class="perche">discordi → sottraggo</span></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">(+4) + (−11)</td><td><strong>discordi</strong><span class="perche">uno positivo, uno negativo</span></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">(−7) + (−13)</td><td><strong>concordi</strong><span class="perche">tutti e due negativi</span></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">(−20) + (+35)</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">(+14) + (+27)</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">(−32) + (+19)</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">(+25) + (−40)</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
 </tbody>
         </table>
-        <p class="ricorda"><strong>Ricorda:</strong> numeri concordi → sommo i valori assoluti e mantengo il segno. Numeri discordi → sottraggo i valori assoluti e uso il segno del numero con valore assoluto maggiore.</p>
-
-        <div class="soluzioni">
-            <h2>Soluzioni</h2>
-            <ol start="1">
-<li>(−8) + (−12) = <strong>−20</strong></li>
-<li>(+12) + (−7) = <strong>+5</strong></li>
-<li>(+6) + (+9) = <strong>+15</strong></li>
-<li>(−15) + (+6) = <strong>−9</strong></li>
-<li>(+4) + (−11) = <strong>−7</strong></li>
-<li>(−7) + (−13) = <strong>−20</strong></li>
-<li>(−20) + (+35) = <strong>+15</strong></li>
-<li>(+14) + (+27) = <strong>+41</strong></li>
-<li>(−32) + (+19) = <strong>−13</strong></li>
-<li>(+25) + (−40) = <strong>−15</strong></li>
-            </ol>
-        </div>
     </section>
 </body>
 </html>
