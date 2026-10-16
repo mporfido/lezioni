@@ -1,0 +1,187 @@
+/* ============================================================
+   Le schede dei materiali: pensate per essere stampate
+   ============================================================
+   Leggibilità prima di tutto, anche per chi ha la dislessia: un font senza
+   grazie con le lettere ben distinte (Atkinson Hyperlegible), corpo grande,
+   righe ariose, niente corsivo né testo giustificato, inchiostro scuro ma non
+   nero pieno. In stampa il foglio è A4 orizzontale, perché le schede sono
+   quasi sempre tabelle con molte colonne.
+   ============================================================ */
+
+@font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/atkinson-hyperlegible-400.woff2') format('woff2')}
+@font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/atkinson-hyperlegible-700.woff2') format('woff2')}
+
+@page { size: A4 landscape; margin: 12mm 14mm; }
+
+:root {
+    --ink: #1B2A4A;
+    --ink-soft: #4A5468;
+    --rossa: #D7263D;
+    --verde: #1F7A45;
+    --carta: #FFFDF5;
+    --linea: #9AA5B8;
+    --fondo-testa: #E8EEF7;
+    --fondo-esempio: #F3F7EE;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 17px; }
+
+body {
+    font-family: 'Atkinson Hyperlegible', Verdana, Arial, sans-serif;
+    color: var(--ink);
+    background: #EDEBE4;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    word-spacing: 0.08em;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* Sullo schermo il foglio è un riquadro della forma di un A4 orizzontale */
+.foglio {
+    max-width: 297mm;
+    margin: 1.5rem auto;
+    padding: 12mm 14mm;
+    background: var(--carta);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.comandi {
+    max-width: 297mm;
+    margin: 1rem auto 0;
+    padding: 0 0.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.comandi a { color: var(--ink); }
+.comandi button {
+    font: inherit;
+    font-weight: 700;
+    padding: 0.5rem 1.2rem;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    background: var(--ink);
+    color: #fff;
+    cursor: pointer;
+}
+.comandi label { cursor: pointer; }
+.comandi .nota { color: var(--ink-soft); font-size: 0.85rem; }
+
+h1 { font-size: 1.7rem; line-height: 1.2; margin-bottom: 0.2rem; }
+.intestazione {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2rem;
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+.intestazione .nome { white-space: nowrap; color: var(--ink-soft); }
+h2 { font-size: 1.25rem; margin: 0.4rem 0 0.5rem; }
+p { margin-bottom: 0.5rem; max-width: 70em; }
+strong { font-weight: 700; }
+
+/* Il riquadro con le regole, da tenere sotto gli occhi */
+.regole {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 0.9rem;
+}
+.regole > div {
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+}
+.regole h3 { font-size: 1.05rem; margin-bottom: 0.2rem; }
+.regole p { margin: 0; }
+
+/* --- La tabella a passi --------------------------------------------- */
+
+table.passi {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+table.passi th,
+table.passi td {
+    border: 1.5px solid var(--linea);
+    padding: 0.45rem 0.6rem;
+    vertical-align: middle;
+    text-align: left;
+}
+table.passi thead th {
+    background: var(--fondo-testa);
+    border-color: var(--ink);
+    border-bottom-width: 3px;
+    font-size: 1rem;
+    line-height: 1.3;
+}
+table.passi thead th .passo {
+    display: inline-block;
+    min-width: 1.6em;
+    height: 1.6em;
+    line-height: 1.6em;
+    text-align: center;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    margin-right: 0.35em;
+    font-size: 0.85rem;
+}
+table.passi thead th small {
+    display: block;
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.15rem;
+}
+table.passi td { height: 3.1rem; font-size: 1.1rem; }
+table.passi td.numero { font-size: 1.25rem; font-weight: 700; white-space: nowrap; }
+table.passi tr.esempio td { background: var(--fondo-esempio); }
+table.passi td .perche { display: block; font-size: 0.85rem; color: var(--ink-soft); }
+table.passi td .scelta { color: var(--ink-soft); letter-spacing: 0.04em; }
+table.passi td.vuoto, table.passi td.cerchia { background: #fff; }
+table.passi td.vuoto::after {
+    /* la riga su cui scrivere a mano */
+    content: "";
+    display: block;
+    border-bottom: 1.5px dotted var(--linea);
+    margin-top: 1.2rem;
+}
+
+/* Le soluzioni si mostrano solo se richieste */
+.soluzioni { display: none; margin-top: 1rem; }
+body.con-soluzioni .soluzioni { display: block; }
+.soluzioni ol {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.2rem 1.5rem;
+    padding-left: 1.6rem;
+}
+.soluzioni li { padding-left: 0.3rem; }
+
+.a-capo { break-before: page; page-break-before: always; }
+.foglio + .foglio { margin-top: 1.5rem; }
+
+@media screen and (max-width: 800px) {
+    html { font-size: 15px; }
+    .foglio { padding: 1rem; margin: 1rem 0.3rem; overflow-x: auto; }
+    table.passi { min-width: 720px; }
+    .regole { grid-template-columns: 1fr; }
+}
+
+@media print {
+    html { font-size: 14px; }
+    body { background: #fff; }
+    .comandi { display: none; }
+    .foglio { box-shadow: none; margin: 0; padding: 0; max-width: none; background: #fff; }
+    .foglio + .foglio { margin-top: 0; break-before: page; page-break-before: always; }
+    table.passi thead { display: table-header-group; }
+    table.passi tr { break-inside: avoid; page-break-inside: avoid; }
+}

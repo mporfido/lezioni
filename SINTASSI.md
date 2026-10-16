@@ -91,3 +91,17 @@ https://mporfido.github.io/lezioni/4BLS/2026-09-23
 Va bene anche `23-09-2026`. In casa, servendo la cartella `sito/` in locale, la forma
 corta non funziona (la traduce `404.html`, che solo GitHub Pages usa): lì si scrive
 `4BLS/?giorno=2026-09-23`, che è esattamente ciò che la pagina legge.
+
+## I materiali — `sito/materiali/`
+
+Schede riusabili, una pagina HTML per argomento, pensate per essere scaricate in PDF
+(pulsante «Scarica PDF» → «Salva come PDF»). Lo stile sta in `materiali/scheda.css`:
+font Atkinson Hyperlegible, corpo grande, foglio A4 orizzontale in stampa; ogni
+`<section class="foglio">` comincia una pagina nuova. Le tabelle a passi usano
+`<table class="passi">`; le caselle da compilare sono `<td class="vuoto">` (riga per
+scrivere) o `<td class="cerchia">` (opzioni da cerchiare); le soluzioni stanno in
+`<div class="soluzioni">` e si stampano solo con la spunta «con le soluzioni».
+
+Una scheda nuova: copia di una esistente in `sito/materiali/<argomento>.html`, poi la
+sua card in `sito/materiali/index.html`. Nella home la voce «Materiali» sta in
+`classi.json`.

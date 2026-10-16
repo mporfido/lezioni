@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Materiali — Lezioni</title>
+    <meta name="theme-color" content="#FBFBF6">
+    <link rel="stylesheet" href="../veste/sito.css">
+    <link rel="stylesheet" href="../veste/tema.css">
+    <script defer src="../veste/comune.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            disegnaTestata('../', 'Materiali', '.');
+            disegnaPiede('Prof. Michele Porfido');
+        });
+    </script>
+</head>
+<body>
+    <main class="contenuto">
+        <h1 class="titolo">Materiali</h1>
+        <p class="sottotitolo">Schede da riusare, argomento per argomento. Ognuna si apre
+            e si scarica in PDF con il pulsante in alto.</p>
+
+        <!-- Una scheda nuova: un file .html in questa cartella (copiando una
+             scheda esistente) e una card qui sotto. -->
+        <div class="classi">
+            <a class="classe-card" href="somma-relativi.html" style="--classe-colore: #D7263D;">
+                <h2>Somma di numeri relativi</h2>
+                <p>Concordi o discordi, valore assoluto, segno: la somma fatta un passo alla volta.</p>
+                <p class="quante">1ª · tabella con 4 esempi e 10 esercizi</p>
+            </a>
+        </div>
+    </main>
+</body>
+</html>
