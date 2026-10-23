@@ -92,20 +92,6 @@ img, svg, video, iframe { max-width: 100%; }
 
 .testata .dove:hover { color: var(--ink); }
 
-/* Nella home l'angolo a destra porta ai materiali: lì è un bottone vero. */
-.testata .dove--bottone {
-    font-family: var(--font-disp);
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--ink);
-    border: 2px solid var(--ink);
-    border-radius: 999px;
-    padding: 0.35rem 1rem;
-    background: var(--carta);
-}
-
-.testata .dove--bottone:hover { background: var(--ink); color: var(--carta); }
-
 .contenuto {
     max-width: 1100px;
     margin: 2.5rem auto;
