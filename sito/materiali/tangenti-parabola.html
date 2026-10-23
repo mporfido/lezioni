@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rette tangenti a una parabola da un punto — Materiali</title>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="scheda.css">
+    <style>
+        /* Qui le equazioni sono lunghe: corpo un po' più piccolo e, se proprio
+           non ci stanno, vanno a capo invece di sbordare nella colonna accanto. */
+        table.passi td.numero { font-size: 1.1rem; white-space: normal; }
+        table.passi td { padding-top: 0.45rem; padding-bottom: 0.45rem; }
+        /* Sul telefono la tabella resta larga e si scorre di lato */
+        @media screen and (max-width: 800px) { table.passi { min-width: 1000px; } }
+    </style>
+    <!-- Formule in LaTeX con MathJax, come nel resto del sito: $...$ in riga -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] },
+            chtml: { scale: 1.0 }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="comandi">
+        <a href="./">← Materiali</a>
+        <button type="button" onclick="window.print()">Scarica PDF</button>
+        <span class="nota">Nella finestra di stampa scegli «Salva come PDF»: il foglio è già orizzontale.</span>
+    </div>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Rette tangenti a una parabola da un punto $P$</h1>
+        </div>
+        <div class="regole" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div>
+                <h3>1° $\Delta$: della parabola</h3>
+                <p>Con $a, b, c$ della <strong>parabola</strong>.<br>
+                   Dà il <strong>vertice</strong> e i punti sull'<strong>asse $x$</strong>.</p>
+            </div>
+            <div>
+                <h3>2° $\Delta$: del sistema</h3>
+                <p>Con $a, b, c$ della <strong>risolvente</strong>, che contiene $m$.<br>
+                   Lo pongo <strong>uguale a zero</strong> (tangenza): ottengo un'<strong>equazione in $m$</strong>.</p>
+            </div>
+            <div>
+                <h3>3° $\Delta$: dell'equazione in $m$</h3>
+                <p>Con $a, b, c$ dell'<strong>equazione in $m$</strong>.<br>
+                   Dà i <strong>coefficienti angolari</strong> delle tangenti.</p>
+            </div>
+        </div>
+
+        <div class="regole" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div>
+                <h3>3° $\Delta &gt; 0$</h3>
+                <p>Due tangenti: $P$ è <strong>esterno</strong> alla concavità.</p>
+            </div>
+            <div>
+                <h3>3° $\Delta = 0$</h3>
+                <p>Una tangente: $P$ è <strong>sulla parabola</strong>.</p>
+            </div>
+            <div>
+                <h3>3° $\Delta &lt; 0$</h3>
+                <p>Nessuna tangente: $P$ è <strong>interno</strong> alla concavità.</p>
+            </div>
+        </div>
+
+        <h2>Esempi svolti — Parte A: la parabola da sola</h2>
+        <table class="passi">
+<colgroup><col style="width:23%"><col style="width:16%"><col style="width:21%"><col style="width:21%"><col style="width:19%"></colgroup>
+<thead><tr>
+<th><span class="passo">1</span>Parabola</th>
+<th><span class="passo">2</span>$\Delta$ della parabola<small>$\Delta = b^2 - 4ac$</small></th>
+<th><span class="passo">3</span>Vertice<small>$V\left(-\frac{b}{2a}\,;\ -\frac{\Delta}{4a}\right)$</small></th>
+<th><span class="passo">4</span>$x_{1,2}$ della parabola<small>$x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}$ · se $\Delta &lt; 0$ non ci sono</small></th>
+<th><span class="passo">5</span>Punti sull'asse $x$<small>$(x_1\,;\ 0)$ e $(x_2\,;\ 0)$</small></th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero">① $y = x^2 - 4x + 3$</td><td>$16 - 12 = \mathbf{4}$<span class="perche">$a = 1,\ b = -4,\ c = 3$</span></td><td>$\mathbf{V(2\,;\ -1)}$<span class="perche">$\frac{4}{2} = 2 \quad -\frac{4}{4} = -1$</span></td><td>$x_{1,2} = \frac{4 \pm 2}{2}$<br>$\mathbf{x_1 = 1,\ x_2 = 3}$</td><td>$\mathbf{(1\,;\ 0)}$ e $\mathbf{(3\,;\ 0)}$</td></tr>
+<tr class="esempio"><td class="numero">② $y = x^2 - 2x - 3$</td><td>$4 + 12 = \mathbf{16}$<span class="perche">$a = 1,\ b = -2,\ c = -3$</span></td><td>$\mathbf{V(1\,;\ -4)}$<span class="perche">$\frac{2}{2} = 1 \quad -\frac{16}{4} = -4$</span></td><td>$x_{1,2} = \frac{2 \pm 4}{2}$<br>$\mathbf{x_1 = -1,\ x_2 = 3}$</td><td>$\mathbf{(-1\,;\ 0)}$ e $\mathbf{(3\,;\ 0)}$</td></tr>
+<tr class="esempio"><td class="numero">③ $y = x^2 - 2x + 2$</td><td>$4 - 8 = \mathbf{-4}$<span class="perche">$a = 1,\ b = -2,\ c = 2$</span></td><td>$\mathbf{V(1\,;\ 1)}$<span class="perche">$\frac{2}{2} = 1 \quad -\frac{-4}{4} = 1$</span></td><td><strong>nessuna</strong><span class="perche">$\Delta &lt; 0$</span></td><td><strong>nessuno</strong></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Esempi svolti — Parte B: il fascio e la condizione di tangenza</h1>
+        </div>
+        <table class="passi">
+<colgroup><col style="width:17%"><col style="width:22%"><col style="width:31%"><col style="width:30%"></colgroup>
+<thead><tr>
+<th><span class="passo">6</span>Parabola e punto</th>
+<th><span class="passo">7</span>Fascio di rette per $P$<small>$y - y_P = m(x - x_P)$, poi ricavo $y$</small></th>
+<th><span class="passo">8</span>Sistema → risolvente<small>uguaglio le $y$, porto tutto a sinistra: dentro c'è $m$</small></th>
+<th><span class="passo">9</span>$\Delta$ del sistema $= 0$<small>condizione di tangenza: diventa un'equazione in $m$</small></th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero">① $y = x^2 - 4x + 3$<br>$P(1\,;\ -4)$</td><td>$y + 4 = m(x - 1)$<br>$\mathbf{y = mx - m - 4}$</td><td>$x^2 - 4x + 3 = mx - m - 4$<br>$\mathbf{x^2 - (4 + m)x + (7 + m) = 0}$</td><td>$(4 + m)^2 - 4(7 + m) = 0$<br>$\mathbf{m^2 + 4m - 12 = 0}$</td></tr>
+<tr class="esempio"><td class="numero">② $y = x^2 - 2x - 3$<br>$P(3\,;\ 0)$</td><td>$y - 0 = m(x - 3)$<br>$\mathbf{y = mx - 3m}$</td><td>$x^2 - 2x - 3 = mx - 3m$<br>$\mathbf{x^2 - (2 + m)x + (3m - 3) = 0}$</td><td>$(2 + m)^2 - 4(3m - 3) = 0$<br>$\mathbf{m^2 - 8m + 16 = 0}$</td></tr>
+<tr class="esempio"><td class="numero">③ $y = x^2 - 2x + 2$<br>$P(1\,;\ 3)$</td><td>$y - 3 = m(x - 1)$<br>$\mathbf{y = mx - m + 3}$</td><td>$x^2 - 2x + 2 = mx - m + 3$<br>$\mathbf{x^2 - (2 + m)x + (m - 1) = 0}$</td><td>$(2 + m)^2 - 4(m - 1) = 0$<br>$\mathbf{m^2 + 8 = 0}$</td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Esempi svolti — Parte C: il terzo $\Delta$ e le tangenti</h1>
+        </div>
+        <table class="passi">
+<colgroup><col style="width:17%"><col style="width:18%"><col style="width:20%"><col style="width:20%"><col style="width:25%"></colgroup>
+<thead><tr>
+<th><span class="passo">10</span>Parabola e punto</th>
+<th><span class="passo">11</span>$\Delta$ dell'equazione in $m$<small>il terzo $\Delta$: $a, b, c$ dell'equazione in $m$</small></th>
+<th><span class="passo">12</span>Il punto $P$ è…<small>esterno, sulla parabola, interno</small></th>
+<th><span class="passo">13</span>$m_{1,2}$<small>$m_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}$</small></th>
+<th><span class="passo">14</span>Rette tangenti<small>sostituisco ogni $m$ nel fascio</small></th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero">① $y = x^2 - 4x + 3$<br>$P(1\,;\ -4)$</td><td>$16 + 48 = \mathbf{64}$<span class="perche">$a = 1,\ b = 4,\ c = -12$</span></td><td><strong>esterno</strong><span class="perche">$\Delta &gt; 0$: due tangenti</span></td><td>$m_{1,2} = \frac{-4 \pm 8}{2}$<br>$\mathbf{m_1 = -6,\ m_2 = 2}$</td><td>$\mathbf{y = -6x + 2}$<br>$\mathbf{y = 2x - 6}$</td></tr>
+<tr class="esempio"><td class="numero">② $y = x^2 - 2x - 3$<br>$P(3\,;\ 0)$</td><td>$64 - 64 = \mathbf{0}$<span class="perche">$a = 1,\ b = -8,\ c = 16$</span></td><td><strong>sulla parabola</strong><span class="perche">$\Delta = 0$: una tangente</span></td><td>$m = \frac{8}{2}$<br>$\mathbf{m = 4}$</td><td>$\mathbf{y = 4x - 12}$</td></tr>
+<tr class="esempio"><td class="numero">③ $y = x^2 - 2x + 2$<br>$P(1\,;\ 3)$</td><td>$0 - 32 = \mathbf{-32}$<span class="perche">$a = 1,\ b = 0,\ c = 8$</span></td><td><strong>interno</strong><span class="perche">$\Delta &lt; 0$: nessuna tangente</span></td><td><strong>nessuno</strong></td><td><strong>nessuna tangente</strong></td></tr>
+</tbody>
+        </table>
+        <p style="margin-top:0.8rem">Attenzione: il $\Delta$ del sistema contiene $m$ e non si calcola come un numero, si <strong>pone uguale a zero</strong>. Il numero da calcolare è il terzo $\Delta$, quello dell'equazione in $m$: è lui che dice quante tangenti ci sono e dove sta $P$.</p>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Ora tocca a te — Parte A: la parabola da sola</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <table class="passi">
+<colgroup><col style="width:23%"><col style="width:16%"><col style="width:21%"><col style="width:21%"><col style="width:19%"></colgroup>
+<thead><tr>
+<th><span class="passo">1</span>Parabola</th>
+<th><span class="passo">2</span>$\Delta$ della parabola<small>$\Delta = b^2 - 4ac$</small></th>
+<th><span class="passo">3</span>Vertice<small>$V\left(-\frac{b}{2a}\,;\ -\frac{\Delta}{4a}\right)$</small></th>
+<th><span class="passo">4</span>$x_{1,2}$ della parabola<small>$x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}$ · se $\Delta &lt; 0$ non ci sono</small></th>
+<th><span class="passo">5</span>Punti sull'asse $x$<small>$(x_1\,;\ 0)$ e $(x_2\,;\ 0)$</small></th>
+</tr></thead>
+<tbody>
+<tr><td class="numero">1. $y = x^2 - 6x + 5$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">2. $y = x^2 - 4$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">3. $y = x^2 + 4x + 3$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">4. $y = -x^2 + 2x + 3$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">5. $y = x^2 - 2x + 5$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">6. $y = x^2 - 1$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">7. $y = x^2 + 2x$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">8. $y = -x^2 + 4x$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Ora tocca a te — Parte B: il fascio e la condizione di tangenza</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <table class="passi">
+<colgroup><col style="width:17%"><col style="width:22%"><col style="width:31%"><col style="width:30%"></colgroup>
+<thead><tr>
+<th><span class="passo">6</span>Parabola e punto</th>
+<th><span class="passo">7</span>Fascio di rette per $P$<small>$y - y_P = m(x - x_P)$, poi ricavo $y$</small></th>
+<th><span class="passo">8</span>Sistema → risolvente<small>uguaglio le $y$, porto tutto a sinistra: dentro c'è $m$</small></th>
+<th><span class="passo">9</span>$\Delta$ del sistema $= 0$<small>condizione di tangenza: diventa un'equazione in $m$</small></th>
+</tr></thead>
+<tbody>
+<tr><td class="numero">1. $y = x^2 - 6x + 5$<br>$P(3\,;\ -5)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">2. $y = x^2 - 4$<br>$P(2\,;\ 0)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">3. $y = x^2 + 4x + 3$<br>$P(-2\,;\ 0)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">4. $y = -x^2 + 2x + 3$<br>$P(1\,;\ 5)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">5. $y = x^2 - 2x + 5$<br>$P(0\,;\ 1)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">6. $y = x^2 - 1$<br>$P(1\,;\ 0)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">7. $y = x^2 + 2x$<br>$P(0\,;\ 2)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">8. $y = -x^2 + 4x$<br>$P(2\,;\ 8)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Ora tocca a te — Parte C: il terzo $\Delta$ e le tangenti</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <table class="passi">
+<colgroup><col style="width:17%"><col style="width:18%"><col style="width:20%"><col style="width:20%"><col style="width:25%"></colgroup>
+<thead><tr>
+<th><span class="passo">10</span>Parabola e punto</th>
+<th><span class="passo">11</span>$\Delta$ dell'equazione in $m$<small>il terzo $\Delta$: $a, b, c$ dell'equazione in $m$</small></th>
+<th><span class="passo">12</span>Il punto $P$ è…<small>esterno, sulla parabola, interno</small></th>
+<th><span class="passo">13</span>$m_{1,2}$<small>$m_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}$</small></th>
+<th><span class="passo">14</span>Rette tangenti<small>sostituisco ogni $m$ nel fascio</small></th>
+</tr></thead>
+<tbody>
+<tr><td class="numero">1. $y = x^2 - 6x + 5$<br>$P(3\,;\ -5)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">2. $y = x^2 - 4$<br>$P(2\,;\ 0)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">3. $y = x^2 + 4x + 3$<br>$P(-2\,;\ 0)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">4. $y = -x^2 + 2x + 3$<br>$P(1\,;\ 5)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">5. $y = x^2 - 2x + 5$<br>$P(0\,;\ 1)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">6. $y = x^2 - 1$<br>$P(1\,;\ 0)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">7. $y = x^2 + 2x$<br>$P(0\,;\ 2)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">8. $y = -x^2 + 4x$<br>$P(2\,;\ 8)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+</body>
+</html>
