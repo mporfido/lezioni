@@ -7,6 +7,13 @@
     <link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/atkinson-hyperlegible-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="scheda.css">
+    <style>
+        /* Qui le equazioni sono lunghe: corpo un po' più piccolo e, se proprio
+           non ci stanno, vanno a capo invece di sbordare nella colonna accanto. */
+        table.passi td.numero { font-size: 1.1rem; white-space: normal; }
+        /* Sul telefono la tabella resta larga e si scorre di lato */
+        @media screen and (max-width: 800px) { table.passi { min-width: 1000px; } }
+    </style>
 </head>
 <body>
     <div class="comandi">
@@ -52,7 +59,7 @@
 
         <h2>Esempi svolti — Parte A: la parabola da sola</h2>
         <table class="passi">
-<colgroup><col style="width:19%"><col style="width:17%"><col style="width:22%"><col style="width:22%"><col style="width:20%"></colgroup>
+<colgroup><col style="width:23%"><col style="width:16%"><col style="width:21%"><col style="width:21%"><col style="width:19%"></colgroup>
 <thead><tr>
 <th><span class="passo">1</span>Parabola</th>
 <th><span class="passo">2</span>Δ della parabola<small>Δ = b<sup>2</sup> − 4ac</small></th>
@@ -73,7 +80,7 @@
             <h1>Esempi svolti — Parte B: retta e parabola insieme</h1>
         </div>
         <table class="passi">
-<colgroup><col style="width:17%"><col style="width:22%"><col style="width:14%"><col style="width:16%"><col style="width:18%"><col style="width:13%"></colgroup>
+<colgroup><col style="width:22%"><col style="width:20%"><col style="width:13%"><col style="width:15%"><col style="width:17%"><col style="width:13%"></colgroup>
 <thead><tr>
 <th><span class="passo">6</span>Parabola e retta</th>
 <th><span class="passo">7</span>Sistema → risolvente<small>uguaglio le y, porto tutto a sinistra</small></th>
@@ -97,7 +104,7 @@
             <span class="nome">Nome ______________________ &nbsp; Data __________</span>
         </div>
         <table class="passi">
-<colgroup><col style="width:19%"><col style="width:17%"><col style="width:22%"><col style="width:22%"><col style="width:20%"></colgroup>
+<colgroup><col style="width:23%"><col style="width:16%"><col style="width:21%"><col style="width:21%"><col style="width:19%"></colgroup>
 <thead><tr>
 <th><span class="passo">1</span>Parabola</th>
 <th><span class="passo">2</span>Δ della parabola<small>Δ = b<sup>2</sup> − 4ac</small></th>
@@ -124,7 +131,7 @@
             <span class="nome">Nome ______________________ &nbsp; Data __________</span>
         </div>
         <table class="passi">
-<colgroup><col style="width:17%"><col style="width:22%"><col style="width:14%"><col style="width:16%"><col style="width:18%"><col style="width:13%"></colgroup>
+<colgroup><col style="width:22%"><col style="width:20%"><col style="width:13%"><col style="width:15%"><col style="width:17%"><col style="width:13%"></colgroup>
 <thead><tr>
 <th><span class="passo">6</span>Parabola e retta</th>
 <th><span class="passo">7</span>Sistema → risolvente<small>uguaglio le y, porto tutto a sinistra</small></th>
