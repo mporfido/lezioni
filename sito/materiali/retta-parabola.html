@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retta e parabola: posizione reciproca — Materiali</title>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="scheda.css">
+</head>
+<body>
+    <div class="comandi">
+        <a href="./">← Materiali</a>
+        <button type="button" onclick="window.print()">Scarica PDF</button>
+        <span class="nota">Nella finestra di stampa scegli «Salva come PDF»: il foglio è già orizzontale.</span>
+    </div>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Retta e parabola: posizione reciproca</h1>
+        </div>
+
+        <div class="regole">
+            <div>
+                <h3>Δ della parabola → la parabola da sola</h3>
+                <p>Uso <strong>a, b, c della parabola</strong> y = ax<sup>2</sup> + bx + c.<br>
+                   Mi dà il <strong>vertice</strong> e i punti dove la parabola <strong>taglia l'asse x</strong>.<br>
+                   Non dice niente sulla retta.</p>
+            </div>
+            <div>
+                <h3>Δ del sistema → retta e parabola insieme</h3>
+                <p>Uguaglio le due y e porto tutto a sinistra: ottengo l'<strong>equazione risolvente</strong>.<br>
+                   Uso <strong>a, b, c della risolvente</strong>, non quelli della parabola.<br>
+                   Mi dà i punti dove <strong>la retta incontra la parabola</strong>.</p>
+            </div>
+        </div>
+
+        <div class="regole" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div>
+                <h3>Δ del sistema &gt; 0</h3>
+                <p>Due punti in comune: retta <strong>secante</strong>.</p>
+            </div>
+            <div>
+                <h3>Δ del sistema = 0</h3>
+                <p>Un solo punto in comune: retta <strong>tangente</strong>.</p>
+            </div>
+            <div>
+                <h3>Δ del sistema &lt; 0</h3>
+                <p>Nessun punto in comune: retta <strong>esterna</strong>.</p>
+            </div>
+        </div>
+
+        <h2>Esempi svolti — Parte A: la parabola da sola</h2>
+        <table class="passi">
+<colgroup><col style="width:19%"><col style="width:17%"><col style="width:22%"><col style="width:22%"><col style="width:20%"></colgroup>
+<thead><tr>
+<th><span class="passo">1</span>Parabola</th>
+<th><span class="passo">2</span>Δ della parabola<small>Δ = b<sup>2</sup> − 4ac</small></th>
+<th><span class="passo">3</span>Vertice<small>V ( −b/2a ; −Δ/4a )</small></th>
+<th><span class="passo">4</span>x<sub>1,2</sub> della parabola<small>x = (−b ± √Δ) / 2a · se Δ &lt; 0 non ci sono</small></th>
+<th><span class="passo">5</span>Punti sull'asse x<small>(x<sub>1</sub> ; 0) e (x<sub>2</sub> ; 0)</small></th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero">① y = x<sup>2</sup> − 4x + 3</td><td>16 − 12 = <strong>4</strong><span class="perche">a = 1, b = −4, c = 3</span></td><td><strong>V (2 ; −1)</strong><span class="perche">4/2 = 2 · −4/4 = −1</span></td><td>(4 ± 2) / 2<br><strong>x<sub>1</sub> = 1, x<sub>2</sub> = 3</strong></td><td><strong>(1 ; 0) e (3 ; 0)</strong></td></tr>
+<tr class="esempio"><td class="numero">② y = x<sup>2</sup> − 2x − 3</td><td>4 + 12 = <strong>16</strong><span class="perche">a = 1, b = −2, c = −3</span></td><td><strong>V (1 ; −4)</strong><span class="perche">2/2 = 1 · −16/4 = −4</span></td><td>(2 ± 4) / 2<br><strong>x<sub>1</sub> = −1, x<sub>2</sub> = 3</strong></td><td><strong>(−1 ; 0) e (3 ; 0)</strong></td></tr>
+<tr class="esempio"><td class="numero">③ y = x<sup>2</sup> − 2x + 2</td><td>4 − 8 = <strong>−4</strong><span class="perche">a = 1, b = −2, c = 2</span></td><td><strong>V (1 ; 1)</strong><span class="perche">2/2 = 1 · −(−4)/4 = 1</span></td><td><strong>nessuna</strong><span class="perche">Δ &lt; 0: la radice non esiste</span></td><td><strong>nessuno</strong><span class="perche">la parabola non tocca l'asse x</span></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Esempi svolti — Parte B: retta e parabola insieme</h1>
+        </div>
+        <table class="passi">
+<colgroup><col style="width:17%"><col style="width:22%"><col style="width:14%"><col style="width:16%"><col style="width:18%"><col style="width:13%"></colgroup>
+<thead><tr>
+<th><span class="passo">6</span>Parabola e retta</th>
+<th><span class="passo">7</span>Sistema → risolvente<small>uguaglio le y, porto tutto a sinistra</small></th>
+<th><span class="passo">8</span>Δ del sistema<small>con a, b, c della risolvente</small></th>
+<th><span class="passo">9</span>x<sub>1,2</sub> del sistema<small>x = (−b ± √Δ) / 2a</small></th>
+<th><span class="passo">10</span>Le y e i punti<small>sostituisco le x nella retta</small></th>
+<th><span class="passo">11</span>La retta è…<small>secante, tangente, esterna</small></th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero">① y = x<sup>2</sup> − 4x + 3<br>&nbsp;&nbsp;&nbsp;&nbsp;y = x − 1</td><td>x<sup>2</sup> − 4x + 3 = x − 1<br><strong>x<sup>2</sup> − 5x + 4 = 0</strong></td><td>25 − 16 = <strong>9</strong><span class="perche">a = 1, b = −5, c = 4</span></td><td>(5 ± 3) / 2<br><strong>x<sub>1</sub> = 1, x<sub>2</sub> = 4</strong></td><td>y = 1 − 1 = 0 · y = 4 − 1 = 3<br><strong>(1 ; 0) e (4 ; 3)</strong></td><td><strong>secante</strong><span class="perche">Δ &gt; 0</span></td></tr>
+<tr class="esempio"><td class="numero">② y = x<sup>2</sup> − 2x − 3<br>&nbsp;&nbsp;&nbsp;&nbsp;y = 2x − 7</td><td>x<sup>2</sup> − 2x − 3 = 2x − 7<br><strong>x<sup>2</sup> − 4x + 4 = 0</strong></td><td>16 − 16 = <strong>0</strong><span class="perche">a = 1, b = −4, c = 4</span></td><td>4 / 2<br><strong>x = 2</strong> <span class="perche">una sola soluzione</span></td><td>y = 4 − 7 = −3<br><strong>(2 ; −3)</strong></td><td><strong>tangente</strong><span class="perche">Δ = 0</span></td></tr>
+<tr class="esempio"><td class="numero">③ y = x<sup>2</sup> − 2x + 2<br>&nbsp;&nbsp;&nbsp;&nbsp;y = x − 2</td><td>x<sup>2</sup> − 2x + 2 = x − 2<br><strong>x<sup>2</sup> − 3x + 4 = 0</strong></td><td>9 − 16 = <strong>−7</strong><span class="perche">a = 1, b = −3, c = 4</span></td><td><strong>nessuna</strong><span class="perche">Δ &lt; 0</span></td><td><strong>nessun punto</strong></td><td><strong>esterna</strong><span class="perche">Δ &lt; 0</span></td></tr>
+</tbody>
+        </table>
+        <p style="margin-top:0.8rem">Attenzione all'esempio ③: il Δ della parabola e quello del sistema sono <strong>due numeri diversi</strong>, calcolati da due equazioni diverse. Il primo dice se la parabola tocca l'asse x, il secondo se tocca la retta.</p>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Ora tocca a te — Parte A: la parabola da sola</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <table class="passi">
+<colgroup><col style="width:19%"><col style="width:17%"><col style="width:22%"><col style="width:22%"><col style="width:20%"></colgroup>
+<thead><tr>
+<th><span class="passo">1</span>Parabola</th>
+<th><span class="passo">2</span>Δ della parabola<small>Δ = b<sup>2</sup> − 4ac</small></th>
+<th><span class="passo">3</span>Vertice<small>V ( −b/2a ; −Δ/4a )</small></th>
+<th><span class="passo">4</span>x<sub>1,2</sub> della parabola<small>x = (−b ± √Δ) / 2a · se Δ &lt; 0 non ci sono</small></th>
+<th><span class="passo">5</span>Punti sull'asse x<small>(x<sub>1</sub> ; 0) e (x<sub>2</sub> ; 0)</small></th>
+</tr></thead>
+<tbody>
+<tr><td class="numero">1. y = x<sup>2</sup> − 6x + 5</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">2. y = x<sup>2</sup> − 4</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">3. y = x<sup>2</sup> + 4x + 3</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">4. y = −x<sup>2</sup> + 2x + 3</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">5. y = x<sup>2</sup> − 2x + 5</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">6. y = x<sup>2</sup> − 1</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">7. y = x<sup>2</sup> + 2x</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">8. y = −x<sup>2</sup> + 4x</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Ora tocca a te — Parte B: retta e parabola insieme</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <table class="passi">
+<colgroup><col style="width:17%"><col style="width:22%"><col style="width:14%"><col style="width:16%"><col style="width:18%"><col style="width:13%"></colgroup>
+<thead><tr>
+<th><span class="passo">6</span>Parabola e retta</th>
+<th><span class="passo">7</span>Sistema → risolvente<small>uguaglio le y, porto tutto a sinistra</small></th>
+<th><span class="passo">8</span>Δ del sistema<small>con a, b, c della risolvente</small></th>
+<th><span class="passo">9</span>x<sub>1,2</sub> del sistema<small>x = (−b ± √Δ) / 2a</small></th>
+<th><span class="passo">10</span>Le y e i punti<small>sostituisco le x nella retta</small></th>
+<th><span class="passo">11</span>La retta è…<small>secante, tangente, esterna</small></th>
+</tr></thead>
+<tbody>
+<tr><td class="numero">1. y = x<sup>2</sup> − 6x + 5<br>&nbsp;&nbsp;&nbsp;&nbsp;y = x − 5</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">2. y = x<sup>2</sup> − 4<br>&nbsp;&nbsp;&nbsp;&nbsp;y = 2x − 5</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">3. y = x<sup>2</sup> + 4x + 3<br>&nbsp;&nbsp;&nbsp;&nbsp;y = −x − 5</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">4. y = −x<sup>2</sup> + 2x + 3<br>&nbsp;&nbsp;&nbsp;&nbsp;y = −x + 3</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">5. y = x<sup>2</sup> − 2x + 5<br>&nbsp;&nbsp;&nbsp;&nbsp;y = 2x + 1</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">6. y = x<sup>2</sup> − 1<br>&nbsp;&nbsp;&nbsp;&nbsp;y = x + 1</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">7. y = x<sup>2</sup> + 2x<br>&nbsp;&nbsp;&nbsp;&nbsp;y = −2x − 5</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">8. y = −x<sup>2</sup> + 4x<br>&nbsp;&nbsp;&nbsp;&nbsp;y = 2x + 1</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+</body>
+</html>
