@@ -102,6 +102,11 @@ font Atkinson Hyperlegible, corpo grande, foglio A4 orizzontale in stampa; ogni
 davvero (niente righe né suggerimenti dentro). Niente soluzioni sulle schede. I margini
 di stampa sono a zero apposta, così il PDF esce senza intestazioni del browser.
 
+Le formule nelle schede si scrivono in LaTeX fra dollari (`$x^2 - 4x + 3$`), come nel
+resto del sito: la scheda carica MathJax nella sua `<head>` (vedi
+`materiali/retta-parabola.html`). Niente formule scritte a mano con `<sup>` o caratteri
+Unicode.
+
 Una scheda nuova: copia di una esistente in `sito/materiali/<argomento>.html`, poi la
 sua card in `sito/materiali/index.html`. Nella home la voce «Materiali» sta in
 `classi.json`.
