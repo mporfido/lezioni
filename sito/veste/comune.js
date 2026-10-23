@@ -113,11 +113,11 @@ function componiFormule() {
 
 /* La testata è uguale ovunque: il titolo a sinistra riporta alla home del sito,
    l'indicazione a destra dice dove si è (la classe, il giorno delle slide). */
-function disegnaTestata(radice, dove, linkDove) {
+function disegnaTestata(radice, dove, linkDove, comeBottone) {
     const testata = document.createElement('header');
     testata.className = 'testata';
     const destra = dove
-        ? `<a class="dove" href="${linkDove || '.'}">${dove}</a>`
+        ? `<a class="dove${comeBottone ? ' dove--bottone' : ''}" href="${linkDove || '.'}">${dove}</a>`
         : '';
     testata.innerHTML = `<nav>
         <a class="marchio" href="${radice}"><span aria-hidden="true">✓</span>Lezioni</a>
