@@ -32,12 +32,6 @@
             "nome": "5CI",
             "descrizione": "",
             "colore": "#5A5E66"
-        },
-        {
-            "slug": "materiali",
-            "nome": "Materiali",
-            "descrizione": "Schede da riusare, da scaricare in PDF.",
-            "colore": "#A81628"
         }
     ]
 }

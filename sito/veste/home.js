@@ -54,7 +54,7 @@ async function mostraHome() {
         }
     }
 
-    disegnaTestata('.', '');
+    disegnaTestata('.', 'Materiali', 'materiali/');
     disegnaPiede(configurazione.docente || '');
 }
 

@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="../veste/sito.css">
     <link rel="stylesheet" href="../veste/tema.css">
     <script defer src="../veste/comune.js"></script>
+    <style>
+        .giorno > h2 { margin-bottom: 0; }
+        .giorno .sezione li { margin-bottom: 0.9rem; }
+        .giorno .sezione li:last-child { margin-bottom: 0; }
+        .dettagli {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--ink-soft);
+        }
+    </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             disegnaTestata('../', 'Materiali', '.');
@@ -22,23 +33,32 @@
             e si scarica in PDF con il pulsante in alto.</p>
 
         <!-- Una scheda nuova: un file .html in questa cartella (copiando una
-             scheda esistente) e una card qui sotto. -->
-        <div class="classi">
-            <a class="classe-card" href="somma-interi.html" style="--classe-colore: #D7263D;">
-                <h2>La somma tra numeri interi</h2>
-                <p>Concordi o discordi, valore assoluto, segno, risultato: la somma un passo alla volta.</p>
-                <p class="quante">1ª · tabella con 4 esempi e 10 esercizi</p>
-            </a>
-            <a class="classe-card" href="retta-parabola.html" style="--classe-colore: #2B6CB0;">
-                <h2>Retta e parabola: posizione reciproca</h2>
-                <p>Δ della parabola per vertice e asse x, Δ del sistema per secante, tangente o esterna: un passo alla volta.</p>
-                <p class="quante">tabella con 3 esempi svolti e 8 esercizi</p>
-            </a>
-            <a class="classe-card" href="tangenti-parabola.html" style="--classe-colore: #1F9D55;">
-                <h2>Rette tangenti a una parabola da un punto</h2>
-                <p>Fascio per il punto, Δ del sistema uguale a zero, terzo Δ per i coefficienti angolari e per capire dove sta il punto.</p>
-                <p class="quante">tabella con 3 esempi svolti e 8 esercizi</p>
-            </a>
+             scheda esistente) e una voce qui sotto, nella sezione del suo
+             argomento. Un argomento nuovo è un'altra <section> uguale. -->
+        <div class="giorni">
+            <section class="giorno">
+                <h2>Numeri interi</h2>
+                <div class="sezione">
+                    <ul>
+                        <li><a href="somma-interi.html">La somma tra numeri interi</a>
+                            — concordi o discordi, valore assoluto, segno, risultato.
+                            <span class="dettagli">1ª · 4 esempi e 10 esercizi</span></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="giorno">
+                <h2>Parabola</h2>
+                <div class="sezione">
+                    <ul>
+                        <li><a href="retta-parabola.html">Retta e parabola: posizione reciproca</a>
+                            — Δ della parabola e Δ del sistema: secante, tangente o esterna.
+                            <span class="dettagli">3 esempi svolti e 8 esercizi</span></li>
+                        <li><a href="tangenti-parabola.html">Rette tangenti a una parabola da un punto</a>
+                            — fascio per il punto, Δ = 0, coefficienti angolari.
+                            <span class="dettagli">3 esempi svolti e 8 esercizi</span></li>
+                    </ul>
+                </div>
+            </section>
         </div>
     </main>
 </body>
