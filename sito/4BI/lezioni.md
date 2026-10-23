@@ -37,3 +37,12 @@ ritorno.
 
 ### Slide
 - [Il faro e la costa](../slides/?deck=2026-09-30-4BI)
+
+## 2026-10-23 — Retta e parabola: secante, tangente o esterna
+
+Posizione reciproca di una retta e di una parabola, un passo alla volta: prima il $\Delta$
+della parabola per vertice e intersezioni con l'asse $x$, poi il $\Delta$ del sistema per
+capire se la retta è secante, tangente o esterna e trovare i punti in comune.
+
+### Materiale
+- [Scheda: retta e parabola, posizione reciproca](../materiali/retta-parabola.html)
