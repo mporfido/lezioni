@@ -149,10 +149,12 @@ table.passi tr.esempio td { background: var(--fondo-esempio); }
 table.passi td .perche { display: block; font-size: 0.85rem; color: var(--ink-soft); }
 table.passi td.vuoto { background: #fff; }   /* vuota davvero: ci si scrive a mano */
 
-/* In fondo a ogni foglio, a schermo e nel PDF: la nota sull'IA. Sta nel CSS
-   così compare da sola anche nelle schede nuove. */
+/* In fondo a ogni foglio, a schermo e nel PDF: autore, licenza e nota sull'IA.
+   Sta nel CSS così compare da sola anche nelle schede nuove, e ogni pagina
+   stampata la porta con sé. Sulla carta il link non si clicca: l'indirizzo è
+   scritto per intero. */
 .foglio::after {
-    content: "Contenuto generato con il supporto di IA";
+    content: "© 2026 Prof. Michele Porfido · Licenza CC BY-NC-SA 4.0 (creativecommons.org/licenses/by-nc-sa/4.0) · Contenuto generato con il supporto di IA";
     display: block;
     margin-top: 0.8rem;
     text-align: right;
