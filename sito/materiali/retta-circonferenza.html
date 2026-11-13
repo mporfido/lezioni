@@ -8,12 +8,16 @@
     <link rel="preload" href="fonts/atkinson-hyperlegible-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="scheda.css">
     <style>
-        /* Qui le equazioni sono lunghe: corpo un po' più piccolo e, se proprio
-           non ci stanno, vanno a capo invece di sbordare nella colonna accanto. */
-        table.passi td.numero { font-size: 1.1rem; white-space: normal; }
-        table.passi td { padding-top: 0.45rem; padding-bottom: 0.45rem; }
+        /* Le formule di MathJax non vanno a capo da sole: per questo le più
+           lunghe sono spezzate a mano su più righe, e le colonne sono tarate
+           sulla formula più larga di ciascuna. */
+        table.passi td { padding: 0.45rem 0.5rem; }
+        table.passi td.numero { font-size: 1.05rem; white-space: nowrap; }
+        table.sistema td { font-size: 0.95rem; }
+        table.sistema td.numero { font-size: 0.95rem; }
+        table.sistema th { padding-left: 0.5rem; padding-right: 0.5rem; }
         /* Sul telefono la tabella resta larga e si scorre di lato */
-        @media screen and (max-width: 800px) { table.passi { min-width: 1000px; } }
+        @media screen and (max-width: 800px) { table.passi { min-width: 1150px; } }
     </style>
     <!-- Formule in LaTeX con MathJax, come nel resto del sito: $...$ in riga -->
     <script>
@@ -68,7 +72,7 @@
 
         <h2>Esempi svolti — Parte A: la circonferenza da sola</h2>
         <table class="passi">
-<colgroup><col style="width:26%"><col style="width:15%"><col style="width:19%"><col style="width:22%"><col style="width:18%"></colgroup>
+<colgroup><col style="width:30%"><col style="width:14%"><col style="width:19%"><col style="width:21%"><col style="width:16%"></colgroup>
 <thead><tr>
 <th><span class="passo">1</span>Circonferenza<small>$x^2 + y^2 + ax + by + c = 0$</small></th>
 <th><span class="passo">2</span>Coefficienti<small>$a$, $b$, $c$ col loro segno</small></th>
@@ -89,8 +93,8 @@
         <div class="intestazione">
             <h1>Esempi svolti — Parte B: retta e circonferenza insieme</h1>
         </div>
-        <table class="passi">
-<colgroup><col style="width:22%"><col style="width:22%"><col style="width:12%"><col style="width:14%"><col style="width:17%"><col style="width:13%"></colgroup>
+        <table class="passi sistema">
+<colgroup><col style="width:26%"><col style="width:24%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:10%"></colgroup>
 <thead><tr>
 <th><span class="passo">6</span>Il sistema</th>
 <th><span class="passo">7</span>Equazione risolvente<small>sostituisco la $y$ della retta, sviluppo il quadrato, porto tutto a sinistra</small></th>
@@ -100,9 +104,9 @@
 <th><span class="passo">11</span>La retta è…<small>secante, tangente, esterna</small></th>
 </tr></thead>
 <tbody>
-<tr class="esempio"><td class="numero">① $\begin{cases} x^2 + y^2 - 4x - 2y - 4 = 0 \\ y = x + 2 \end{cases}$</td><td>$x^2 + (x+2)^2 - 4x - 2(x+2) - 4 = 0$<br>$2x^2 - 2x - 4 = 0$<br>$\mathbf{x^2 - x - 2 = 0}$<span class="perche">divido tutto per 2</span></td><td>$1 + 8 = \mathbf{9}$<span class="perche">$a = 1,\ b = -1,\ c = -2$</span></td><td>$x_{1,2} = \frac{1 \pm 3}{2}$<br>$\mathbf{x_1 = -1,\ x_2 = 2}$</td><td>$y_1 = -1 + 2 = 1$<br>$y_2 = 2 + 2 = 4$<br>$\mathbf{(-1\,;\ 1)}$ e $\mathbf{(2\,;\ 4)}$</td><td><strong>secante</strong><span class="perche">$\Delta &gt; 0$</span></td></tr>
-<tr class="esempio"><td class="numero">② $\begin{cases} x^2 + y^2 - 2x + 4y = 0 \\ y = -2x + 5 \end{cases}$</td><td>$x^2 + (-2x+5)^2 - 2x + 4(-2x+5) = 0$<br>$5x^2 - 30x + 45 = 0$<br>$\mathbf{x^2 - 6x + 9 = 0}$<span class="perche">divido tutto per 5</span></td><td>$36 - 36 = \mathbf{0}$<span class="perche">$a = 1,\ b = -6,\ c = 9$</span></td><td>$x = \frac{6}{2}$<br>$\mathbf{x = 3}$<span class="perche">una sola soluzione</span></td><td>$y = -6 + 5 = -1$<br>$\mathbf{(3\,;\ -1)}$</td><td><strong>tangente</strong><span class="perche">$\Delta = 0$</span></td></tr>
-<tr class="esempio"><td class="numero">③ $\begin{cases} x^2 + y^2 + 2x - 6y + 1 = 0 \\ y = x - 2 \end{cases}$</td><td>$x^2 + (x-2)^2 + 2x - 6(x-2) + 1 = 0$<br>$\mathbf{2x^2 - 8x + 17 = 0}$</td><td>$64 - 136 = \mathbf{-72}$<span class="perche">$a = 2,\ b = -8,\ c = 17$</span></td><td><strong>nessuna</strong><span class="perche">$\Delta &lt; 0$</span></td><td><strong>nessun punto</strong></td><td><strong>esterna</strong><span class="perche">$\Delta &lt; 0$</span></td></tr>
+<tr class="esempio"><td class="numero">① $\begin{cases} x^2 + y^2 - 4x - 2y - 4 = 0 \\ y = x + 2 \end{cases}$</td><td>$x^2 + (x+2)^2$<br>$- 4x - 2(x+2) - 4 = 0$<br>$2x^2 - 2x - 4 = 0$<br>$\mathbf{x^2 - x - 2 = 0}$<span class="perche">divido tutto per 2</span></td><td>$1 + 8 = \mathbf{9}$<span class="perche">$a = 1$, $b = -1$, $c = -2$</span></td><td>$x_{1,2} = \frac{1 \pm 3}{2}$<br>$\mathbf{x_1 = -1}$<br>$\mathbf{x_2 = 2}$</td><td>$y_1 = -1 + 2 = 1$<br>$y_2 = 2 + 2 = 4$<br>$\mathbf{(-1\,;\ 1)}$<br>$\mathbf{(2\,;\ 4)}$</td><td><strong>secante</strong><span class="perche">$\Delta &gt; 0$</span></td></tr>
+<tr class="esempio"><td class="numero">② $\begin{cases} x^2 + y^2 - 2x + 4y = 0 \\ y = -2x + 5 \end{cases}$</td><td>$x^2 + (-2x+5)^2$<br>$- 2x + 4(-2x+5) = 0$<br>$5x^2 - 30x + 45 = 0$<br>$\mathbf{x^2 - 6x + 9 = 0}$<span class="perche">divido tutto per 5</span></td><td>$36 - 36 = \mathbf{0}$<span class="perche">$a = 1$, $b = -6$, $c = 9$</span></td><td>$x = \frac{6}{2}$<br>$\mathbf{x = 3}$<span class="perche">una sola soluzione</span></td><td>$y = -6 + 5 = -1$<br>$\mathbf{(3\,;\ -1)}$</td><td><strong>tangente</strong><span class="perche">$\Delta = 0$</span></td></tr>
+<tr class="esempio"><td class="numero">③ $\begin{cases} x^2 + y^2 + 2x - 6y + 1 = 0 \\ y = x - 2 \end{cases}$</td><td>$x^2 + (x-2)^2$<br>$+ 2x - 6(x-2) + 1 = 0$<br>$\mathbf{2x^2 - 8x + 17 = 0}$</td><td>$64 - 136$<br>$= \mathbf{-72}$<span class="perche">$a = 2$, $b = -8$, $c = 17$</span></td><td><strong>nessuna</strong><span class="perche">$\Delta &lt; 0$</span></td><td><strong>nessun punto</strong></td><td><strong>esterna</strong><span class="perche">$\Delta &lt; 0$</span></td></tr>
 </tbody>
         </table>
         <p style="margin-top:0.8rem">Il passaggio dove si sbaglia di più è il quadrato: $(x+2)^2 = x^2 + 4x + 4$, <strong>non</strong> $x^2 + 4$. E prima di calcolare il $\Delta$, se tutti i coefficienti si dividono per lo stesso numero, conviene dividere: i conti diventano più piccoli e il segno del $\Delta$ non cambia.</p>
@@ -114,7 +118,7 @@
             <span class="nome">Nome ______________________ &nbsp; Data __________</span>
         </div>
         <table class="passi">
-<colgroup><col style="width:26%"><col style="width:15%"><col style="width:19%"><col style="width:22%"><col style="width:18%"></colgroup>
+<colgroup><col style="width:30%"><col style="width:14%"><col style="width:19%"><col style="width:21%"><col style="width:16%"></colgroup>
 <thead><tr>
 <th><span class="passo">1</span>Circonferenza<small>$x^2 + y^2 + ax + by + c = 0$</small></th>
 <th><span class="passo">2</span>Coefficienti<small>$a$, $b$, $c$ col loro segno</small></th>
@@ -140,8 +144,8 @@
             <h1>Ora tocca a te — Parte B: retta e circonferenza insieme</h1>
             <span class="nome">Nome ______________________ &nbsp; Data __________</span>
         </div>
-        <table class="passi">
-<colgroup><col style="width:22%"><col style="width:22%"><col style="width:12%"><col style="width:14%"><col style="width:17%"><col style="width:13%"></colgroup>
+        <table class="passi sistema">
+<colgroup><col style="width:26%"><col style="width:24%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:10%"></colgroup>
 <thead><tr>
 <th><span class="passo">6</span>Il sistema</th>
 <th><span class="passo">7</span>Equazione risolvente<small>sostituisco la $y$ della retta, sviluppo il quadrato, porto tutto a sinistra</small></th>
