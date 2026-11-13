@@ -55,6 +55,12 @@
         table.sistema td.numero { font-size: 0.95rem; white-space: nowrap; }
         table.sistema th { padding-left: 0.5rem; padding-right: 0.5rem; }
         @media screen and (max-width: 800px) { table.passi { min-width: 1150px; } }
+        /* Il riquadro delle regole sopra gli esercizi: più compatto, deve
+           stare nello stesso foglio con la tabella. */
+        .regole.compatte { margin-bottom: 0.6rem; gap: 0.6rem; }
+        .regole.compatte > div { padding: 0.35rem 0.7rem; }
+        .regole.compatte h3 { font-size: 0.95rem; }
+        .regole.compatte p { font-size: 0.9rem; line-height: 1.35; }
     </style>
     <!-- Formule in LaTeX con MathJax, come nel resto del sito: $...$ in riga -->
     <script>
@@ -300,6 +306,30 @@
             <h1>Ora tocca a te — Retta e circonferenza: posizione reciproca</h1>
             <span class="nome">Nome ______________________ &nbsp; Data __________</span>
         </div>
+        <div class="regole compatte" style="grid-template-columns: 1fr;">
+            <div>
+                <h3>Il sistema e il suo $\Delta$</h3>
+                <p>Sostituisco la $y$ della retta nella circonferenza, sviluppo e porto tutto a sinistra: ottengo l'<strong>equazione risolvente</strong>.<br>
+                   Uso <strong>$a, b, c$ della risolvente</strong>, non quelli della circonferenza.<br>
+                   Mi dà i punti dove <strong>la retta incontra la circonferenza</strong>.</p>
+            </div>
+        </div>
+
+        <div class="regole compatte" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div>
+                <h3>$\Delta$ del sistema $&gt; 0$</h3>
+                <p>Due punti in comune: retta <strong>secante</strong>.<br>Il centro è vicino alla retta: $d &lt; r$.</p>
+            </div>
+            <div>
+                <h3>$\Delta$ del sistema $= 0$</h3>
+                <p>Un solo punto in comune: retta <strong>tangente</strong>.<br>La distanza è proprio il raggio: $d = r$.</p>
+            </div>
+            <div>
+                <h3>$\Delta$ del sistema $&lt; 0$</h3>
+                <p>Nessun punto in comune: retta <strong>esterna</strong>.<br>Il centro è lontano dalla retta: $d &gt; r$.</p>
+            </div>
+        </div>
+
         <table class="passi sistema">
 <colgroup><col style="width:26%"><col style="width:24%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:10%"></colgroup>
 <thead><tr>
@@ -312,13 +342,11 @@
 </tr></thead>
 <tbody>
 <tr><td class="numero">1. $\begin{cases} x^2 + y^2 - 6x + 5 = 0 \\ y = x - 1 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">2. $\begin{cases} x^2 + y^2 - 25 = 0 \\ y = x + 1 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">3. $\begin{cases} x^2 + y^2 + 4x - 2y = 0 \\ y = -2x + 2 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">4. $\begin{cases} x^2 + y^2 - 2x - 2y + 1 = 0 \\ y = x + 3 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">5. $\begin{cases} x^2 + y^2 - 4x + 2y - 5 = 0 \\ y = 2x \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">6. $\begin{cases} x^2 + y^2 - 4y = 0 \\ y = 4 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">7. $\begin{cases} x^2 + y^2 + 2x + 4y + 1 = 0 \\ y = -x + 2 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">8. $\begin{cases} x^2 + y^2 - 6x - 2y + 5 = 0 \\ y = -2x + 12 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">2. $\begin{cases} x^2 + y^2 + 4x - 2y = 0 \\ y = -2x + 2 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">3. $\begin{cases} x^2 + y^2 - 2x - 2y + 1 = 0 \\ y = x + 3 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">4. $\begin{cases} x^2 + y^2 - 4x + 2y - 5 = 0 \\ y = 2x \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">5. $\begin{cases} x^2 + y^2 + 2x + 4y + 1 = 0 \\ y = -x + 2 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero">6. $\begin{cases} x^2 + y^2 - 6x - 2y + 5 = 0 \\ y = -2x + 12 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
 </tbody>
         </table>
     </section>
