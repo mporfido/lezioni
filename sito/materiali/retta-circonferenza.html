@@ -40,15 +40,9 @@
             <h1>Retta e circonferenza: posizione reciproca</h1>
         </div>
 
-        <div class="regole">
+        <div class="regole" style="grid-template-columns: 1fr;">
             <div>
-                <h3>La circonferenza da sola</h3>
-                <p>Scrivo l'equazione nella forma <strong>$x^2 + y^2 + ax + by + c = 0$</strong> e leggo $a, b, c$.<br>
-                   Mi danno il <strong>centro</strong> $C\left(-\frac{a}{2}\,;\ -\frac{b}{2}\right)$ e il <strong>raggio</strong> $r = \sqrt{x_C^2 + y_C^2 - c}$.<br>
-                   Se sotto radice viene zero o un numero negativo, <strong>non è una circonferenza</strong>.</p>
-            </div>
-            <div>
-                <h3>$\Delta$ del sistema → retta e circonferenza insieme</h3>
+                <h3>Il sistema e il suo $\Delta$</h3>
                 <p>Sostituisco la $y$ della retta nella circonferenza, sviluppo e porto tutto a sinistra: ottengo l'<strong>equazione risolvente</strong>.<br>
                    Uso <strong>$a, b, c$ della risolvente</strong>, non quelli della circonferenza.<br>
                    Mi dà i punti dove <strong>la retta incontra la circonferenza</strong>.</p>
@@ -70,38 +64,16 @@
             </div>
         </div>
 
-        <h2>Esempi svolti — Parte A: la circonferenza da sola</h2>
-        <table class="passi">
-<colgroup><col style="width:30%"><col style="width:14%"><col style="width:19%"><col style="width:21%"><col style="width:16%"></colgroup>
-<thead><tr>
-<th><span class="passo">1</span>Circonferenza<small>$x^2 + y^2 + ax + by + c = 0$</small></th>
-<th><span class="passo">2</span>Coefficienti<small>$a$, $b$, $c$ col loro segno</small></th>
-<th><span class="passo">3</span>Centro<small>$C\left(-\frac{a}{2}\,;\ -\frac{b}{2}\right)$</small></th>
-<th><span class="passo">4</span>$r^2$<small>$r^2 = x_C^2 + y_C^2 - c$</small></th>
-<th><span class="passo">5</span>Raggio<small>$r = \sqrt{r^2}$ · se $r^2 \le 0$ non è una circonferenza</small></th>
-</tr></thead>
-<tbody>
-<tr class="esempio"><td class="numero">① $x^2 + y^2 - 4x - 2y - 4 = 0$</td><td>$a = -4$<br>$b = -2$<br>$c = -4$</td><td>$\mathbf{C(2\,;\ 1)}$<span class="perche">$\frac{4}{2} = 2 \quad \frac{2}{2} = 1$</span></td><td>$4 + 1 + 4 = \mathbf{9}$<span class="perche">$- c = -(-4) = +4$</span></td><td>$\mathbf{r = 3}$</td></tr>
-<tr class="esempio"><td class="numero">② $x^2 + y^2 - 2x + 4y = 0$</td><td>$a = -2$<br>$b = 4$<br>$c = 0$</td><td>$\mathbf{C(1\,;\ -2)}$<span class="perche">$\frac{2}{2} = 1 \quad -\frac{4}{2} = -2$</span></td><td>$1 + 4 - 0 = \mathbf{5}$</td><td>$\mathbf{r = \sqrt{5}}$<span class="perche">si lascia così</span></td></tr>
-<tr class="esempio"><td class="numero">③ $x^2 + y^2 + 2x - 6y + 1 = 0$</td><td>$a = 2$<br>$b = -6$<br>$c = 1$</td><td>$\mathbf{C(-1\,;\ 3)}$<span class="perche">$-\frac{2}{2} = -1 \quad \frac{6}{2} = 3$</span></td><td>$1 + 9 - 1 = \mathbf{9}$</td><td>$\mathbf{r = 3}$</td></tr>
-</tbody>
-        </table>
-        <p style="margin-top:0.8rem">Attenzione al segno: il centro ha le coordinate <strong>col segno cambiato</strong> rispetto a metà di $a$ e $b$. E nel calcolo di $r^2$ il $c$ va <strong>sottratto</strong>: se $c$ è negativo, il raggio cresce.</p>
-    </section>
-
-    <section class="foglio">
-        <div class="intestazione">
-            <h1>Esempi svolti — Parte B: retta e circonferenza insieme</h1>
-        </div>
+        <h2>Esempi svolti</h2>
         <table class="passi sistema">
 <colgroup><col style="width:26%"><col style="width:24%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:10%"></colgroup>
 <thead><tr>
-<th><span class="passo">6</span>Il sistema</th>
-<th><span class="passo">7</span>Equazione risolvente<small>sostituisco la $y$ della retta, sviluppo il quadrato, porto tutto a sinistra</small></th>
-<th><span class="passo">8</span>$\Delta$ del sistema<small>con $a, b, c$ della risolvente</small></th>
-<th><span class="passo">9</span>$x_{1,2}$ del sistema<small>$x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}$</small></th>
-<th><span class="passo">10</span>Le $y$ e i punti<small>sostituisco le $x$ nella retta</small></th>
-<th><span class="passo">11</span>La retta è…<small>secante, tangente, esterna</small></th>
+<th><span class="passo">1</span>Il sistema</th>
+<th><span class="passo">2</span>Equazione risolvente<small>sostituisco la $y$ della retta, sviluppo il quadrato, porto tutto a sinistra</small></th>
+<th><span class="passo">3</span>$\Delta$ del sistema<small>con $a, b, c$ della risolvente</small></th>
+<th><span class="passo">4</span>$x_{1,2}$ del sistema<small>$x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}$</small></th>
+<th><span class="passo">5</span>Le $y$ e i punti<small>sostituisco le $x$ nella retta</small></th>
+<th><span class="passo">6</span>La retta è…<small>secante, tangente, esterna</small></th>
 </tr></thead>
 <tbody>
 <tr class="esempio"><td class="numero">① $\begin{cases} x^2 + y^2 - 4x - 2y - 4 = 0 \\ y = x + 2 \end{cases}$</td><td>$x^2 + (x+2)^2$<br>$- 4x - 2(x+2) - 4 = 0$<br>$2x^2 - 2x - 4 = 0$<br>$\mathbf{x^2 - x - 2 = 0}$<span class="perche">divido tutto per 2</span></td><td>$1 + 8 = \mathbf{9}$<span class="perche">$a = 1$, $b = -1$, $c = -2$</span></td><td>$x_{1,2} = \frac{1 \pm 3}{2}$<br>$\mathbf{x_1 = -1}$<br>$\mathbf{x_2 = 2}$</td><td>$y_1 = -1 + 2 = 1$<br>$y_2 = 2 + 2 = 4$<br>$\mathbf{(-1\,;\ 1)}$<br>$\mathbf{(2\,;\ 4)}$</td><td><strong>secante</strong><span class="perche">$\Delta &gt; 0$</span></td></tr>
@@ -114,45 +86,18 @@
 
     <section class="foglio">
         <div class="intestazione">
-            <h1>Ora tocca a te — Parte A: la circonferenza da sola</h1>
-            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
-        </div>
-        <table class="passi">
-<colgroup><col style="width:30%"><col style="width:14%"><col style="width:19%"><col style="width:21%"><col style="width:16%"></colgroup>
-<thead><tr>
-<th><span class="passo">1</span>Circonferenza<small>$x^2 + y^2 + ax + by + c = 0$</small></th>
-<th><span class="passo">2</span>Coefficienti<small>$a$, $b$, $c$ col loro segno</small></th>
-<th><span class="passo">3</span>Centro<small>$C\left(-\frac{a}{2}\,;\ -\frac{b}{2}\right)$</small></th>
-<th><span class="passo">4</span>$r^2$<small>$r^2 = x_C^2 + y_C^2 - c$</small></th>
-<th><span class="passo">5</span>Raggio<small>$r = \sqrt{r^2}$ · se $r^2 \le 0$ non è una circonferenza</small></th>
-</tr></thead>
-<tbody>
-<tr><td class="numero">1. $x^2 + y^2 - 6x + 5 = 0$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">2. $x^2 + y^2 - 25 = 0$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">3. $x^2 + y^2 + 4x - 2y = 0$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">4. $x^2 + y^2 - 2x - 2y + 1 = 0$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">5. $x^2 + y^2 - 4x + 2y - 5 = 0$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">6. $x^2 + y^2 - 4y = 0$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">7. $x^2 + y^2 + 2x + 4y + 1 = 0$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-<tr><td class="numero">8. $x^2 + y^2 - 6x - 2y + 5 = 0$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
-</tbody>
-        </table>
-    </section>
-
-    <section class="foglio">
-        <div class="intestazione">
-            <h1>Ora tocca a te — Parte B: retta e circonferenza insieme</h1>
+            <h1>Ora tocca a te — Retta e circonferenza: posizione reciproca</h1>
             <span class="nome">Nome ______________________ &nbsp; Data __________</span>
         </div>
         <table class="passi sistema">
 <colgroup><col style="width:26%"><col style="width:24%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:10%"></colgroup>
 <thead><tr>
-<th><span class="passo">6</span>Il sistema</th>
-<th><span class="passo">7</span>Equazione risolvente<small>sostituisco la $y$ della retta, sviluppo il quadrato, porto tutto a sinistra</small></th>
-<th><span class="passo">8</span>$\Delta$ del sistema<small>con $a, b, c$ della risolvente</small></th>
-<th><span class="passo">9</span>$x_{1,2}$ del sistema<small>$x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}$</small></th>
-<th><span class="passo">10</span>Le $y$ e i punti<small>sostituisco le $x$ nella retta</small></th>
-<th><span class="passo">11</span>La retta è…<small>secante, tangente, esterna</small></th>
+<th><span class="passo">1</span>Il sistema</th>
+<th><span class="passo">2</span>Equazione risolvente<small>sostituisco la $y$ della retta, sviluppo il quadrato, porto tutto a sinistra</small></th>
+<th><span class="passo">3</span>$\Delta$ del sistema<small>con $a, b, c$ della risolvente</small></th>
+<th><span class="passo">4</span>$x_{1,2}$ del sistema<small>$x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}$</small></th>
+<th><span class="passo">5</span>Le $y$ e i punti<small>sostituisco le $x$ nella retta</small></th>
+<th><span class="passo">6</span>La retta è…<small>secante, tangente, esterna</small></th>
 </tr></thead>
 <tbody>
 <tr><td class="numero">1. $\begin{cases} x^2 + y^2 - 6x + 5 = 0 \\ y = x - 1 \end{cases}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
