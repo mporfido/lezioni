@@ -149,6 +149,17 @@ table.passi tr.esempio td { background: var(--fondo-esempio); }
 table.passi td .perche { display: block; font-size: 0.85rem; color: var(--ink-soft); }
 table.passi td.vuoto { background: #fff; }   /* vuota davvero: ci si scrive a mano */
 
+/* In fondo a ogni foglio, a schermo e nel PDF: la nota sull'IA. Sta nel CSS
+   così compare da sola anche nelle schede nuove. */
+.foglio::after {
+    content: "Contenuto generato con il supporto di IA";
+    display: block;
+    margin-top: 0.8rem;
+    text-align: right;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+}
+
 .a-capo { break-before: page; page-break-before: always; }
 .foglio + .foglio { margin-top: 1.5rem; }
 
