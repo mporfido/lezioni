@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La divisione in colonna tra polinomi — Materiali</title>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="scheda.css">
+    <style>
+        /* Lo schema della divisione: una colonna per ogni grado del dividendo,
+           così i termini simili restano incolonnati uno sotto l'altro. */
+        .esercizi { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2.5rem; align-items: start; }
+        .esercizio h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+        table.divisione { border-collapse: collapse; }
+        table.divisione td {
+            width: 4.4em; height: 2.1rem;
+            padding: 0 0.3rem;
+            text-align: center; vertical-align: middle;
+            font-size: 1.1rem; white-space: nowrap;
+        }
+        table.divisione td.sotto { border-bottom: 2px solid var(--ink); }
+        table.divisione td.vuoto { background: #fff; outline: 1px solid var(--linea); outline-offset: -3px; }
+        table.divisione td.resto { color: var(--rossa); font-weight: 700; }
+        table.divisione td.divisore,
+        table.divisione td.quoziente {
+            width: auto; min-width: 11em;
+            text-align: left; padding-left: 0.8rem;
+            border-left: 3px solid var(--ink);
+        }
+        table.divisione td.divisore { border-bottom: 3px solid var(--ink); }
+        table.divisione td.quoziente { font-weight: 700; }
+        table.divisione td.quoziente.vuoto { outline-offset: -4px; }
+        table.divisione td.destra { width: auto; }
+        table.divisione td.etichetta { text-align: left; padding-left: 0.8rem; color: var(--rossa); font-size: 0.95rem; }
+        .buco { display: inline-block; width: 6em; height: 1.6rem; vertical-align: middle;
+                background: #fff; border: 1px solid var(--linea); }
+        .buco.lungo { width: 11em; }
+        .esito { margin-top: 0.4rem; font-size: 1.1rem; }
+        @media screen and (max-width: 800px) {
+            .esercizi { grid-template-columns: 1fr; }
+            .esercizio { overflow-x: auto; }
+        }
+    </style>
+    <!-- Formule in LaTeX con MathJax, come nel resto del sito: $...$ in riga -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] },
+            chtml: { scale: 1.0 }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="comandi">
+        <a href="./">← Materiali</a>
+        <button type="button" onclick="window.print()">Scarica PDF</button>
+        <span class="nota">Nella finestra di stampa scegli «Salva come PDF»: il foglio è già orizzontale.</span>
+    </div>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>La divisione in colonna tra polinomi</h1>
+        </div>
+
+        <div class="regole" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div>
+                <h3>Prima di cominciare</h3>
+                <p>Ordino dividendo e divisore secondo le <strong>potenze decrescenti</strong> di $x$.<br>
+                   Se nel dividendo manca un grado, lo scrivo con <strong>coefficiente $0$</strong>.</p>
+            </div>
+            <div>
+                <h3>Ogni passo</h3>
+                <p><strong>Divido</strong> il primo termine rimasto per il primo del divisore: è un termine del quoziente.<br>
+                   Lo <strong>moltiplico</strong> per il divisore, <strong>cambio i segni</strong> e scrivo sotto, grado sotto grado.<br>
+                   <strong>Sommo</strong> in colonna.</p>
+            </div>
+            <div>
+                <h3>Quando mi fermo</h3>
+                <p>Quando il grado di quello che resta è <strong>minore del grado del divisore</strong>: quello è il <strong>resto</strong> $R$.<br>
+                   Controllo: $A(x) = B(x) \cdot Q(x) + R$.</p>
+            </div>
+        </div>
+
+        <h2>Esempi svolti</h2>
+        <div class="esercizi">
+<div class="esercizio">
+<h3>① &nbsp;$(2x^3 +x^2 -5x +3) : (x +2)$</h3>
+<table class="divisione" style="--colonne:4">
+<tr><td class="dato">$2x^3$</td><td class="dato">$+x^2$</td><td class="dato">$-5x$</td><td class="dato">$+3$</td><td class="divisore">$x +2$</td></tr>
+<tr class="prodotto"><td class="sotto">$-2x^3$</td><td class="sotto">$-4x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$2x^2 -3x +1$</td></tr>
+<tr class="somma"><td></td><td>$-3x^2$</td><td>$-5x$</td><td>$+3$</td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="sotto">$+3x^2$</td><td class="sotto">$+6x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td>$+x$</td><td>$+3$</td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td class="sotto">$-x$</td><td class="sotto">$-2$</td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td class="resto">$+1$</td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) = 2x^2 -3x +1$ &nbsp;&nbsp; $R = 1$</p>
+</div>
+<div class="esercizio">
+<h3>② &nbsp;$(x^4 -3x^2 +x -2) : (x^2 +x -1)$</h3>
+<table class="divisione" style="--colonne:5">
+<tr><td class="dato">$x^4$</td><td class="dato">$+0x^3$</td><td class="dato">$-3x^2$</td><td class="dato">$+x$</td><td class="dato">$-2$</td><td class="divisore">$x^2 +x -1$</td></tr>
+<tr class="prodotto"><td class="sotto">$-x^4$</td><td class="sotto">$-x^3$</td><td class="sotto">$+x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$x^2 -x -1$</td></tr>
+<tr class="somma"><td></td><td>$-x^3$</td><td>$-2x^2$</td><td>$+x$</td><td>$-2$</td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="sotto">$+x^3$</td><td class="sotto">$+x^2$</td><td class="sotto">$-x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td>$-x^2$</td><td>$+0x$</td><td>$-2$</td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td class="sotto">$+x^2$</td><td class="sotto">$+x$</td><td class="sotto">$-1$</td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td class="resto">$+x$</td><td class="resto">$-3$</td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) = x^2 -x -1$ &nbsp;&nbsp; $R = x -3$</p>
+</div>
+        </div>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Completa tu — gli esercizi già avviati</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <p>In ③ manca l'ultimo passo, in ④ ne è fatto uno solo, in ⑤ c'è solo il dividendo già completato con gli zeri.</p>
+        <div class="esercizi">
+<div class="esercizio">
+<h3>③ &nbsp;$(3x^3 -4x^2 +2x +1) : (x -1)$</h3>
+<table class="divisione" style="--colonne:4">
+<tr><td class="dato">$3x^3$</td><td class="dato">$-4x^2$</td><td class="dato">$+2x$</td><td class="dato">$+1$</td><td class="divisore">$x -1$</td></tr>
+<tr class="prodotto"><td class="sotto">$-3x^3$</td><td class="sotto">$+3x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$3x^2 -x$ <span class="buco"></span></td></tr>
+<tr class="somma"><td></td><td>$-x^2$</td><td>$+2x$</td><td>$+1$</td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="sotto">$+x^2$</td><td class="sotto">$-x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td>$+x$</td><td>$+1$</td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td class="vuoto"></td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) =$ <span class="buco lungo"></span> &nbsp;&nbsp; $R =$ <span class="buco"></span></p>
+</div>
+<div class="esercizio">
+<h3>④ &nbsp;$(x^3 +2x -7) : (x -2)$</h3>
+<table class="divisione" style="--colonne:4">
+<tr><td class="dato">$x^3$</td><td class="dato">$+0x^2$</td><td class="dato">$+2x$</td><td class="dato">$-7$</td><td class="divisore">$x -2$</td></tr>
+<tr class="prodotto"><td class="sotto">$-x^3$</td><td class="sotto">$+2x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$x^2$ <span class="buco"></span></td></tr>
+<tr class="somma"><td></td><td>$+2x^2$</td><td>$+2x$</td><td>$-7$</td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td class="vuoto"></td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) =$ <span class="buco lungo"></span> &nbsp;&nbsp; $R =$ <span class="buco"></span></p>
+</div>
+<div class="esercizio">
+<h3>⑤ &nbsp;$(2x^4 -x^3 +3x -4) : (x^2 -2)$</h3>
+<table class="divisione" style="--colonne:5">
+<tr><td class="dato">$2x^4$</td><td class="dato">$-x^3$</td><td class="dato">$+0x^2$</td><td class="dato">$+3x$</td><td class="dato">$-4$</td><td class="divisore">$x^2 -2$</td></tr>
+<tr class="prodotto"><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="sotto"></td><td class="quoziente vuoto"></td></tr>
+<tr class="somma"><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) =$ <span class="buco lungo"></span> &nbsp;&nbsp; $R =$ <span class="buco"></span></p>
+</div>
+        </div>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Ora tocca a te</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <p>Scrivi tu il dividendo nella prima riga (ordinato, con gli zeri dove serve) e il divisore a destra, poi procedi.</p>
+        <div class="esercizi">
+<div class="esercizio">
+<h3>1. &nbsp;$(x^3 +2x^2 -x +2) : (x +3)$</h3>
+<table class="divisione" style="--colonne:4">
+<tr><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="divisore"></td></tr>
+<tr class="prodotto"><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="sotto"></td><td class="quoziente vuoto"></td></tr>
+<tr class="somma"><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td class="vuoto"></td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) =$ <span class="buco lungo"></span> &nbsp;&nbsp; $R =$ <span class="buco"></span></p>
+</div>
+<div class="esercizio">
+<h3>2. &nbsp;$(x^3 -5x^2 +2x +8) : (x -4)$</h3>
+<table class="divisione" style="--colonne:4">
+<tr><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="divisore"></td></tr>
+<tr class="prodotto"><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="sotto"></td><td class="quoziente vuoto"></td></tr>
+<tr class="somma"><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td class="vuoto"></td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) =$ <span class="buco lungo"></span> &nbsp;&nbsp; $R =$ <span class="buco"></span></p>
+</div>
+<div class="esercizio">
+<h3>3. &nbsp;$(6x^3 +x^2 +3x -2) : (2x +1)$</h3>
+<table class="divisione" style="--colonne:4">
+<tr><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="divisore"></td></tr>
+<tr class="prodotto"><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="sotto"></td><td class="quoziente vuoto"></td></tr>
+<tr class="somma"><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td class="vuoto"></td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) =$ <span class="buco lungo"></span> &nbsp;&nbsp; $R =$ <span class="buco"></span></p>
+</div>
+<div class="esercizio">
+<h3>4. &nbsp;$(2x^3 -7x +4) : (x^2 -3)$</h3>
+<table class="divisione" style="--colonne:4">
+<tr><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="divisore"></td></tr>
+<tr class="prodotto"><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="quoziente vuoto"></td></tr>
+<tr class="somma"><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) =$ <span class="buco lungo"></span> &nbsp;&nbsp; $R =$ <span class="buco"></span></p>
+</div>
+        </div>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Ora tocca a te — divisori di secondo grado e termini mancanti</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <div class="esercizi">
+<div class="esercizio">
+<h3>5. &nbsp;$(x^4 +2x^2 -3x +1) : (x +1)$</h3>
+<table class="divisione" style="--colonne:5">
+<tr><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="divisore"></td></tr>
+<tr class="prodotto"><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="sotto"></td><td class="sotto"></td><td class="quoziente vuoto"></td></tr>
+<tr class="somma"><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td></td><td class="vuoto"></td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) =$ <span class="buco lungo"></span> &nbsp;&nbsp; $R =$ <span class="buco"></span></p>
+</div>
+<div class="esercizio">
+<h3>6. &nbsp;$(x^4 +3x^3 -2x +5) : (x^2 +2x -1)$</h3>
+<table class="divisione" style="--colonne:5">
+<tr><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="divisore"></td></tr>
+<tr class="prodotto"><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="sotto"></td><td class="quoziente vuoto"></td></tr>
+<tr class="somma"><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra"></td></tr>
+<tr class="prodotto"><td></td><td></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="vuoto sotto"></td><td class="destra"></td></tr>
+<tr class="somma"><td></td><td></td><td></td><td class="vuoto"></td><td class="vuoto"></td><td class="destra etichetta">← resto</td></tr>
+</table>
+<p class="esito">$Q(x) =$ <span class="buco lungo"></span> &nbsp;&nbsp; $R =$ <span class="buco"></span></p>
+</div>
+        </div>
+    </section>
+</body>
+</html>
