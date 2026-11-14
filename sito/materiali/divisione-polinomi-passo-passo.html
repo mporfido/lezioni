@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La divisione in colonna tra polinomi, passo per passo — Materiali</title>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="scheda.css">
+    <style>
+        /* Ogni esempio è una sequenza di riquadri, da leggere da sinistra a
+           destra e dall'alto in basso: in ogni riquadro lo schema cresce di un
+           pezzo, e il pezzo nuovo è evidenziato. Una riga = un termine del
+           quoziente: (a) divido, (b) moltiplico e cambio segno, (c) sommo. */
+        .sequenza { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem 0.8rem; align-items: start; }
+        .riquadro { border: 1.5px solid var(--linea); border-radius: 8px; padding: 0.4rem 0.6rem 0.5rem; }
+        .riquadro.inizio { grid-column: 1 / -1; display: flex; gap: 2rem; align-items: center; }
+        .riquadro.inizio .cosa { flex: 1; margin: 0; }
+        .cosa { font-size: 0.92rem; line-height: 1.35; margin-bottom: 0.35rem; }
+        .tappa { display: inline-block; min-width: 2em; padding: 0 0.3em; margin-right: 0.4em;
+                 border-radius: 0.8em; background: var(--ink); color: #fff; text-align: center;
+                 font-weight: 700; font-size: 0.85rem; }
+        table.divisione { border-collapse: collapse; }
+        table.divisione td {
+            width: 3.9em; height: 1.65rem; padding: 0 0.2rem;
+            text-align: center; vertical-align: middle; font-size: 1rem; white-space: nowrap;
+        }
+        table.divisione td.sotto { border-bottom: 2px solid var(--ink); }
+        table.divisione td.divisore,
+        table.divisione td.quoziente {
+            width: auto; min-width: 8em; text-align: left; padding-left: 0.6rem;
+            border-left: 3px solid var(--ink);
+        }
+        table.divisione td.divisore { border-bottom: 3px solid var(--ink); }
+        table.divisione td.quoziente { font-weight: 700; }
+        table.divisione td.destra { width: auto; }
+        /* il pezzo appena aggiunto */
+        .nuovo { background: #FFE9A8; }
+        table.divisione td.nuovo { background: #FFE9A8; font-weight: 700; }
+        span.nuovo { padding: 0.1em 0.25em; border-radius: 4px; }
+        table.divisione td.resto { color: var(--rossa); font-weight: 700; }
+        .esito { margin-top: 0.6rem; }
+        @media screen and (max-width: 800px) {
+            .sequenza { grid-template-columns: 1fr; }
+            .riquadro.inizio { display: block; }
+            .riquadro { overflow-x: auto; }
+        }
+    </style>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] },
+            chtml: { scale: 1.0 }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="comandi">
+        <a href="./">← Materiali</a>
+        <a href="divisione-polinomi.html">La scheda con gli esercizi</a>
+        <button type="button" onclick="window.print()">Scarica PDF</button>
+        <span class="nota">Nella finestra di stampa scegli «Salva come PDF»: il foglio è già orizzontale.</span>
+    </div>
+
+    <section class="foglio">
+<div class="intestazione"><h1>Esempio ① &nbsp;$(2x^3 +x^2 -5x +3) : (x +2)$</h1></div>
+<div class="sequenza">
+<div class="riquadro inizio"><div class="cosa"><span class="tappa">0</span>Scrivo il dividendo ordinato secondo le potenze decrescenti: non manca nessun grado. Il divisore va a destra.</div><table class="divisione">
+<tr><td class="nuovo">$2x^3$</td><td class="nuovo">$+x^2$</td><td class="nuovo">$-5x$</td><td class="nuovo">$+3$</td><td class="divisore nuovo">$x +2$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="quoziente"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">1a</span><strong>Divido</strong> il primo termine $2x^3$ per il primo termine del divisore $x$: $2x^3 : x = 2x^2$. Lo scrivo nel quoziente.</div><table class="divisione">
+<tr><td>$2x^3$</td><td>$+x^2$</td><td>$-5x$</td><td>$+3$</td><td class="divisore">$x +2$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="quoziente"><span class="nuovo">$2x^2$</span></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">1b</span><strong>Moltiplico</strong> $2x^2$ per tutto il divisore: $2x^2\,(x +2) = 2x^3 +4x^2$. <strong>Cambio i segni</strong> e scrivo $-2x^3 -4x^2$ sotto, grado sotto grado.</div><table class="divisione">
+<tr><td>$2x^3$</td><td>$+x^2$</td><td>$-5x$</td><td>$+3$</td><td class="divisore">$x +2$</td></tr>
+<tr><td class="sotto nuovo">$-2x^3$</td><td class="sotto nuovo">$-4x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$2x^2$</td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">1c</span><strong>Sommo</strong> in colonna: il primo termine si annulla e resta $-3x^2 -5x +3$. Ha grado 2, non minore di 1: <strong>continuo</strong>.</div><table class="divisione">
+<tr><td>$2x^3$</td><td>$+x^2$</td><td>$-5x$</td><td>$+3$</td><td class="divisore">$x +2$</td></tr>
+<tr><td class="sotto">$-2x^3$</td><td class="sotto">$-4x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$2x^2$</td></tr>
+<tr><td></td><td class="nuovo">$-3x^2$</td><td class="nuovo">$-5x$</td><td class="nuovo">$+3$</td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">2a</span><strong>Divido</strong> il primo termine $-3x^2$ per il primo termine del divisore $x$: $-3x^2 : x = -3x$. Lo scrivo nel quoziente.</div><table class="divisione">
+<tr><td>$2x^3$</td><td>$+x^2$</td><td>$-5x$</td><td>$+3$</td><td class="divisore">$x +2$</td></tr>
+<tr><td class="sotto">$-2x^3$</td><td class="sotto">$-4x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$2x^2$ <span class="nuovo">$-3x$</span></td></tr>
+<tr><td></td><td>$-3x^2$</td><td>$-5x$</td><td>$+3$</td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">2b</span><strong>Moltiplico</strong> $-3x$ per tutto il divisore: $-3x\,(x +2) = -3x^2 -6x$. <strong>Cambio i segni</strong> e scrivo $3x^2 +6x$ sotto, grado sotto grado.</div><table class="divisione">
+<tr><td>$2x^3$</td><td>$+x^2$</td><td>$-5x$</td><td>$+3$</td><td class="divisore">$x +2$</td></tr>
+<tr><td class="sotto">$-2x^3$</td><td class="sotto">$-4x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$2x^2$ $-3x$</td></tr>
+<tr><td></td><td>$-3x^2$</td><td>$-5x$</td><td>$+3$</td><td class="destra"></td></tr>
+<tr><td></td><td class="sotto nuovo">$+3x^2$</td><td class="sotto nuovo">$+6x$</td><td class="sotto"></td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">2c</span><strong>Sommo</strong> in colonna: il primo termine si annulla e resta $x +3$. Ha grado 1, non minore di 1: <strong>continuo</strong>.</div><table class="divisione">
+<tr><td>$2x^3$</td><td>$+x^2$</td><td>$-5x$</td><td>$+3$</td><td class="divisore">$x +2$</td></tr>
+<tr><td class="sotto">$-2x^3$</td><td class="sotto">$-4x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$2x^2$ $-3x$</td></tr>
+<tr><td></td><td>$-3x^2$</td><td>$-5x$</td><td>$+3$</td><td class="destra"></td></tr>
+<tr><td></td><td class="sotto">$+3x^2$</td><td class="sotto">$+6x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr><td></td><td></td><td class="nuovo">$+x$</td><td class="nuovo">$+3$</td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">3a</span><strong>Divido</strong> il primo termine $x$ per il primo termine del divisore $x$: $x : x = 1$. Lo scrivo nel quoziente.</div><table class="divisione">
+<tr><td>$2x^3$</td><td>$+x^2$</td><td>$-5x$</td><td>$+3$</td><td class="divisore">$x +2$</td></tr>
+<tr><td class="sotto">$-2x^3$</td><td class="sotto">$-4x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$2x^2$ $-3x$ <span class="nuovo">$+1$</span></td></tr>
+<tr><td></td><td>$-3x^2$</td><td>$-5x$</td><td>$+3$</td><td class="destra"></td></tr>
+<tr><td></td><td class="sotto">$+3x^2$</td><td class="sotto">$+6x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr><td></td><td></td><td>$+x$</td><td>$+3$</td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">3b</span><strong>Moltiplico</strong> $1$ per tutto il divisore: $1\,(x +2) = x +2$. <strong>Cambio i segni</strong> e scrivo $-x -2$ sotto, grado sotto grado.</div><table class="divisione">
+<tr><td>$2x^3$</td><td>$+x^2$</td><td>$-5x$</td><td>$+3$</td><td class="divisore">$x +2$</td></tr>
+<tr><td class="sotto">$-2x^3$</td><td class="sotto">$-4x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$2x^2$ $-3x$ $+1$</td></tr>
+<tr><td></td><td>$-3x^2$</td><td>$-5x$</td><td>$+3$</td><td class="destra"></td></tr>
+<tr><td></td><td class="sotto">$+3x^2$</td><td class="sotto">$+6x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr><td></td><td></td><td>$+x$</td><td>$+3$</td><td class="destra"></td></tr>
+<tr><td></td><td></td><td class="sotto nuovo">$-x$</td><td class="sotto nuovo">$-2$</td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">3c</span><strong>Sommo</strong> in colonna: resta $1$. Ha grado 0, minore di 1 (il grado del divisore): <strong>mi fermo</strong>, questo è il resto.</div><table class="divisione">
+<tr><td>$2x^3$</td><td>$+x^2$</td><td>$-5x$</td><td>$+3$</td><td class="divisore">$x +2$</td></tr>
+<tr><td class="sotto">$-2x^3$</td><td class="sotto">$-4x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$2x^2$ $-3x$ $+1$</td></tr>
+<tr><td></td><td>$-3x^2$</td><td>$-5x$</td><td>$+3$</td><td class="destra"></td></tr>
+<tr><td></td><td class="sotto">$+3x^2$</td><td class="sotto">$+6x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr><td></td><td></td><td>$+x$</td><td>$+3$</td><td class="destra"></td></tr>
+<tr><td></td><td></td><td class="sotto">$-x$</td><td class="sotto">$-2$</td><td class="destra"></td></tr>
+<tr><td></td><td></td><td></td><td class="nuovo resto">$+1$</td><td class="destra"></td></tr>
+</table></div>
+</div>
+<p class="esito">Risultato: $Q(x) = 2x^2 -3x +1$ &nbsp;&nbsp; $R = 1$ &nbsp;&nbsp; Controllo: $(x +2)(2x^2 -3x +1) + (1)$ deve dare il dividendo.</p>
+    </section>
+
+    <section class="foglio">
+<div class="intestazione"><h1>Esempio ② &nbsp;$(x^4 -3x^2 +x -2) : (x^2 +x -1)$</h1></div>
+<div class="sequenza">
+<div class="riquadro inizio"><div class="cosa"><span class="tappa">0</span>Scrivo il dividendo ordinato, con $0$ al posto di $x^3$ che manca. Il divisore va a destra.</div><table class="divisione">
+<tr><td class="nuovo">$x^4$</td><td class="nuovo">$+0x^3$</td><td class="nuovo">$-3x^2$</td><td class="nuovo">$+x$</td><td class="nuovo">$-2$</td><td class="divisore nuovo">$x^2 +x -1$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="quoziente"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">1a</span><strong>Divido</strong> il primo termine $x^4$ per il primo termine del divisore $x^2$: $x^4 : x^2 = x^2$. Lo scrivo nel quoziente.</div><table class="divisione">
+<tr><td>$x^4$</td><td>$+0x^3$</td><td>$-3x^2$</td><td>$+x$</td><td>$-2$</td><td class="divisore">$x^2 +x -1$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="quoziente"><span class="nuovo">$x^2$</span></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">1b</span><strong>Moltiplico</strong> $x^2$ per tutto il divisore: $x^2\,(x^2 +x -1) = x^4 +x^3 -x^2$. <strong>Cambio i segni</strong> e scrivo $-x^4 -x^3 +x^2$ sotto, grado sotto grado.</div><table class="divisione">
+<tr><td>$x^4$</td><td>$+0x^3$</td><td>$-3x^2$</td><td>$+x$</td><td>$-2$</td><td class="divisore">$x^2 +x -1$</td></tr>
+<tr><td class="sotto nuovo">$-x^4$</td><td class="sotto nuovo">$-x^3$</td><td class="sotto nuovo">$+x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$x^2$</td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">1c</span><strong>Sommo</strong> in colonna: il primo termine si annulla e resta $-x^3 -2x^2 +x -2$. Ha grado 3, non minore di 2: <strong>continuo</strong>.</div><table class="divisione">
+<tr><td>$x^4$</td><td>$+0x^3$</td><td>$-3x^2$</td><td>$+x$</td><td>$-2$</td><td class="divisore">$x^2 +x -1$</td></tr>
+<tr><td class="sotto">$-x^4$</td><td class="sotto">$-x^3$</td><td class="sotto">$+x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$x^2$</td></tr>
+<tr><td></td><td class="nuovo">$-x^3$</td><td class="nuovo">$-2x^2$</td><td class="nuovo">$+x$</td><td class="nuovo">$-2$</td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">2a</span><strong>Divido</strong> il primo termine $-x^3$ per il primo termine del divisore $x^2$: $-x^3 : x^2 = -x$. Lo scrivo nel quoziente.</div><table class="divisione">
+<tr><td>$x^4$</td><td>$+0x^3$</td><td>$-3x^2$</td><td>$+x$</td><td>$-2$</td><td class="divisore">$x^2 +x -1$</td></tr>
+<tr><td class="sotto">$-x^4$</td><td class="sotto">$-x^3$</td><td class="sotto">$+x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$x^2$ <span class="nuovo">$-x$</span></td></tr>
+<tr><td></td><td>$-x^3$</td><td>$-2x^2$</td><td>$+x$</td><td>$-2$</td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">2b</span><strong>Moltiplico</strong> $-x$ per tutto il divisore: $-x\,(x^2 +x -1) = -x^3 -x^2 +x$. <strong>Cambio i segni</strong> e scrivo $x^3 +x^2 -x$ sotto, grado sotto grado.</div><table class="divisione">
+<tr><td>$x^4$</td><td>$+0x^3$</td><td>$-3x^2$</td><td>$+x$</td><td>$-2$</td><td class="divisore">$x^2 +x -1$</td></tr>
+<tr><td class="sotto">$-x^4$</td><td class="sotto">$-x^3$</td><td class="sotto">$+x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$x^2$ $-x$</td></tr>
+<tr><td></td><td>$-x^3$</td><td>$-2x^2$</td><td>$+x$</td><td>$-2$</td><td class="destra"></td></tr>
+<tr><td></td><td class="sotto nuovo">$+x^3$</td><td class="sotto nuovo">$+x^2$</td><td class="sotto nuovo">$-x$</td><td class="sotto"></td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">2c</span><strong>Sommo</strong> in colonna: il primo termine si annulla e resta $-x^2 -2$. Ha grado 2, non minore di 2: <strong>continuo</strong>.</div><table class="divisione">
+<tr><td>$x^4$</td><td>$+0x^3$</td><td>$-3x^2$</td><td>$+x$</td><td>$-2$</td><td class="divisore">$x^2 +x -1$</td></tr>
+<tr><td class="sotto">$-x^4$</td><td class="sotto">$-x^3$</td><td class="sotto">$+x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$x^2$ $-x$</td></tr>
+<tr><td></td><td>$-x^3$</td><td>$-2x^2$</td><td>$+x$</td><td>$-2$</td><td class="destra"></td></tr>
+<tr><td></td><td class="sotto">$+x^3$</td><td class="sotto">$+x^2$</td><td class="sotto">$-x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr><td></td><td></td><td class="nuovo">$-x^2$</td><td class="nuovo">$+0x$</td><td class="nuovo">$-2$</td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">3a</span><strong>Divido</strong> il primo termine $-x^2$ per il primo termine del divisore $x^2$: $-x^2 : x^2 = -1$. Lo scrivo nel quoziente.</div><table class="divisione">
+<tr><td>$x^4$</td><td>$+0x^3$</td><td>$-3x^2$</td><td>$+x$</td><td>$-2$</td><td class="divisore">$x^2 +x -1$</td></tr>
+<tr><td class="sotto">$-x^4$</td><td class="sotto">$-x^3$</td><td class="sotto">$+x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$x^2$ $-x$ <span class="nuovo">$-1$</span></td></tr>
+<tr><td></td><td>$-x^3$</td><td>$-2x^2$</td><td>$+x$</td><td>$-2$</td><td class="destra"></td></tr>
+<tr><td></td><td class="sotto">$+x^3$</td><td class="sotto">$+x^2$</td><td class="sotto">$-x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr><td></td><td></td><td>$-x^2$</td><td>$+0x$</td><td>$-2$</td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">3b</span><strong>Moltiplico</strong> $-1$ per tutto il divisore: $-1\,(x^2 +x -1) = -x^2 -x +1$. <strong>Cambio i segni</strong> e scrivo $x^2 +x -1$ sotto, grado sotto grado.</div><table class="divisione">
+<tr><td>$x^4$</td><td>$+0x^3$</td><td>$-3x^2$</td><td>$+x$</td><td>$-2$</td><td class="divisore">$x^2 +x -1$</td></tr>
+<tr><td class="sotto">$-x^4$</td><td class="sotto">$-x^3$</td><td class="sotto">$+x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$x^2$ $-x$ $-1$</td></tr>
+<tr><td></td><td>$-x^3$</td><td>$-2x^2$</td><td>$+x$</td><td>$-2$</td><td class="destra"></td></tr>
+<tr><td></td><td class="sotto">$+x^3$</td><td class="sotto">$+x^2$</td><td class="sotto">$-x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr><td></td><td></td><td>$-x^2$</td><td>$+0x$</td><td>$-2$</td><td class="destra"></td></tr>
+<tr><td></td><td></td><td class="sotto nuovo">$+x^2$</td><td class="sotto nuovo">$+x$</td><td class="sotto nuovo">$-1$</td><td class="destra"></td></tr>
+</table></div>
+<div class="riquadro"><div class="cosa"><span class="tappa">3c</span><strong>Sommo</strong> in colonna: resta $x -3$. Ha grado 1, minore di 2 (il grado del divisore): <strong>mi fermo</strong>, questo è il resto.</div><table class="divisione">
+<tr><td>$x^4$</td><td>$+0x^3$</td><td>$-3x^2$</td><td>$+x$</td><td>$-2$</td><td class="divisore">$x^2 +x -1$</td></tr>
+<tr><td class="sotto">$-x^4$</td><td class="sotto">$-x^3$</td><td class="sotto">$+x^2$</td><td class="sotto"></td><td class="sotto"></td><td class="quoziente">$x^2$ $-x$ $-1$</td></tr>
+<tr><td></td><td>$-x^3$</td><td>$-2x^2$</td><td>$+x$</td><td>$-2$</td><td class="destra"></td></tr>
+<tr><td></td><td class="sotto">$+x^3$</td><td class="sotto">$+x^2$</td><td class="sotto">$-x$</td><td class="sotto"></td><td class="destra"></td></tr>
+<tr><td></td><td></td><td>$-x^2$</td><td>$+0x$</td><td>$-2$</td><td class="destra"></td></tr>
+<tr><td></td><td></td><td class="sotto">$+x^2$</td><td class="sotto">$+x$</td><td class="sotto">$-1$</td><td class="destra"></td></tr>
+<tr><td></td><td></td><td></td><td class="nuovo resto">$+x$</td><td class="nuovo resto">$-3$</td><td class="destra"></td></tr>
+</table></div>
+</div>
+<p class="esito">Risultato: $Q(x) = x^2 -x -1$ &nbsp;&nbsp; $R = x -3$ &nbsp;&nbsp; Controllo: $(x^2 +x -1)(x^2 -x -1) + (x -3)$ deve dare il dividendo.</p>
+    </section>
+</body>
+</html>

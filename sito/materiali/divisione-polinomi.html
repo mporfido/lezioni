@@ -37,6 +37,7 @@
                 background: #fff; border: 1px solid var(--linea); }
         .buco.lungo { width: 11em; }
         .esito { margin-top: 0.4rem; font-size: 1.1rem; }
+        @media print { .solo-schermo { display: none; } }
         @media screen and (max-width: 800px) {
             .esercizi { grid-template-columns: 1fr; }
             .esercizio { overflow-x: auto; }
@@ -83,6 +84,7 @@
         </div>
 
         <h2>Esempi svolti</h2>
+        <p class="solo-schermo">Gli stessi due esempi, un passo alla volta: <a href="divisione-polinomi-passo-passo.html">la divisione passo per passo</a>.</p>
         <div class="esercizi">
 <div class="esercizio">
 <h3>① &nbsp;$(2x^3 +x^2 -5x +3) : (x +2)$</h3>
