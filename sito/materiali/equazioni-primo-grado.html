@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equazioni di primo grado — Materiali</title>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="scheda.css">
+    <style>
+        /* Una pagina per tipo di equazione: la riga verde è l'esempio svolto,
+           poi le caselle bianche aumentano riga dopo riga. Le formule di
+           MathJax non vanno a capo: l'equazione sta in un corpo un po' più
+           piccolo del solito e le colonne sono tarate sulla più lunga. */
+        table.passi td { height: 3.4rem; }
+        table.passi td.numero { font-size: 1.1rem; }
+        table.passi td .perche { margin-top: 0.1rem; }
+        .regole { grid-template-columns: 1fr 1fr; }
+        .regole.compatte { margin-bottom: 0.6rem; gap: 0.6rem; }
+        .regole.compatte > div { padding: 0.35rem 0.7rem; }
+        .regole.compatte h3 { font-size: 0.95rem; }
+        .regole.compatte p { font-size: 0.92rem; line-height: 1.35; }
+        .istruzioni { font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 0.5rem; }
+        .lettera { font-weight: 700; margin-right: 0.4em; color: var(--ink-soft); }
+        @media screen and (max-width: 800px) { table.passi { min-width: 1000px; } }
+    </style>
+    <!-- Formule in LaTeX con MathJax, come nel resto del sito: $...$ in riga -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] },
+            chtml: { scale: 1.0 }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="comandi">
+        <a href="./">← Materiali</a>
+        <button type="button" onclick="window.print()">Scarica PDF</button>
+        <span class="nota">Nella finestra di stampa scegli «Salva come PDF»: il foglio è già orizzontale. Una pagina per ogni tipo di equazione.</span>
+    </div>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>① &nbsp;Solo il primo principio</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <div class="regole compatte">
+            <div><h3>Primo principio di equivalenza</h3><p>Se <strong>aggiungo o tolgo lo stesso numero</strong> ai due membri, ottengo un'equazione equivalente.<br>Lo uso per togliere di mezzo quello che sta <strong>sommato</strong> alla $x$.</p></div>
+            <div><h3>In pratica</h3><p>Il numero «passa» dall'altra parte <strong>cambiando segno</strong>: $+5$ diventa $-5$, $-3$ diventa $+3$.<br>Alla fine faccio la <strong>verifica</strong>: metto la soluzione al posto di $x$.</p></div>
+        </div>
+        <p class="istruzioni">La riga verde è svolta. Nelle altre completa le caselle bianche, da sinistra a destra: riga dopo riga ne trovi sempre di più.</p>
+        <table class="passi">
+<colgroup><col style="width:22%"><col style="width:32%"><col style="width:18%"><col style="width:28%"></colgroup>
+<thead><tr>
+<th>Equazione</th>
+<th><span class="passo">1</span>Aggiungo o tolgo<small>lo stesso numero ai due membri</small></th>
+<th><span class="passo">2</span>Calcolo<small>resta la $x$ da sola</small></th>
+<th><span class="passo">3</span>Verifica<small>metto la soluzione al posto di $x$</small></th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio</span><br>$x + 5 = 12$</td><td>$x + 5 {\color{#D7263D}{- 5}} = 12 {\color{#D7263D}{- 5}}$<span class="perche">tolgo $5$ dai due membri</span></td><td>$\mathbf{x = 7}$<span class="perche">$5 - 5 = 0$ e $12 - 5 = 7$</span></td><td>$7 + 5 = 12$&nbsp;✓<span class="perche">i due membri sono uguali</span></td></tr>
+<tr><td class="numero"><span class="lettera">a)</span><br>$x - 3 = 7$</td><td>$x - 3 {\color{#D7263D}{+ 3}} = 7 {\color{#D7263D}{+ 3}}$<span class="perche">aggiungo $3$ ai due membri</span></td><td>$x = 10$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">b)</span><br>$x + 9 = 4$</td><td>$x + 9 {\color{#D7263D}{- 9}} = 4 {\color{#D7263D}{- 9}}$<span class="perche">tolgo $9$ dai due membri</span></td><td>$x = -5$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">c)</span><br>$6 + x = 2$</td><td>$6 + x {\color{#D7263D}{- 6}} = 2 {\color{#D7263D}{- 6}}$<span class="perche">tolgo $6$ dai due membri</span></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">d)</span><br>$x - 8 = -15$</td><td>$x - 8 {\color{#D7263D}{+ 8}} = -15 {\color{#D7263D}{+ 8}}$</td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">e)</span><br>$x + 12 = 0$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">f)</span><br>$-7 + x = -10$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">g)</span><br>$2x = x + 6$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>② &nbsp;Solo il secondo principio</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <div class="regole compatte">
+            <div><h3>Secondo principio di equivalenza</h3><p>Se <strong>moltiplico o divido</strong> i due membri per lo <strong>stesso numero</strong> (diverso da $0$), ottengo un'equazione equivalente.<br>Lo uso per togliere di mezzo quello che sta <strong>moltiplicato</strong> alla $x$.</p></div>
+            <div><h3>In pratica</h3><p>Divido i due membri per il <strong>coefficiente</strong> della $x$, <strong>segno compreso</strong>.<br>Se la frazione non viene intera, la <strong>semplifico</strong>. Se la $x$ è divisa per un numero, moltiplico per quel numero.</p></div>
+        </div>
+        <p class="istruzioni">La riga verde è svolta. Nelle altre completa le caselle bianche, da sinistra a destra: riga dopo riga ne trovi sempre di più.</p>
+        <table class="passi">
+<colgroup><col style="width:22%"><col style="width:30%"><col style="width:20%"><col style="width:28%"></colgroup>
+<thead><tr>
+<th>Equazione</th>
+<th><span class="passo">1</span>Divido i due membri<small>per il coefficiente della $x$</small></th>
+<th><span class="passo">2</span>Calcolo<small>semplifico la frazione</small></th>
+<th><span class="passo">3</span>Verifica<small>metto la soluzione al posto di $x$</small></th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio</span><br>$3x = 12$</td><td>$\dfrac{3x}{{\color{#D7263D}{3}}} = \dfrac{12}{{\color{#D7263D}{3}}}$<span class="perche">divido per $3$, il coefficiente della $x$</span></td><td>$\mathbf{x = 4}$<span class="perche">$12 : 3 = 4$</span></td><td>$3 \cdot 4 = 12$&nbsp;✓<span class="perche">i due membri sono uguali</span></td></tr>
+<tr><td class="numero"><span class="lettera">a)</span><br>$5x = 35$</td><td>$\dfrac{5x}{{\color{#D7263D}{5}}} = \dfrac{35}{{\color{#D7263D}{5}}}$</td><td>$x = 7$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">b)</span><br>$-4x = 20$</td><td>$\dfrac{-4x}{{\color{#D7263D}{-4}}} = \dfrac{20}{{\color{#D7263D}{-4}}}$<span class="perche">il coefficiente è $-4$: divido per $-4$</span></td><td>$x = -5$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">c)</span><br>$6x = -42$</td><td>$\dfrac{6x}{{\color{#D7263D}{6}}} = \dfrac{-42}{{\color{#D7263D}{6}}}$</td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">d)</span><br>$-x = 9$</td><td>$\dfrac{-x}{{\color{#D7263D}{-1}}} = \dfrac{9}{{\color{#D7263D}{-1}}}$<span class="perche">davanti alla $x$ c'è $-1$</span></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">e)</span><br>$4x = 6$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">f)</span><br>$-10x = -25$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">g)</span><br>$\dfrac{x}{3} = 5$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>③ &nbsp;Prima il primo, poi il secondo</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <div class="regole compatte">
+            <div><h3>Prima il primo principio</h3><p>Porto tutti i termini con la $x$ a <strong>sinistra</strong> e tutti i numeri a <strong>destra</strong>: chi cambia membro <strong>cambia segno</strong>.<br>Poi <strong>sommo i termini simili</strong> in ciascun membro.</p></div>
+            <div><h3>Poi il secondo principio</h3><p>Resta una cosa come $3x = 15$: <strong>divido i due membri</strong> per il coefficiente della $x$, segno compreso.<br>Alla fine faccio la verifica sull'equazione di partenza.</p></div>
+        </div>
+        <p class="istruzioni">La riga verde è svolta. Nelle altre completa le caselle bianche, da sinistra a destra: riga dopo riga ne trovi sempre di più.</p>
+        <table class="passi">
+<colgroup><col style="width:22%"><col style="width:26%"><col style="width:17%"><col style="width:21%"><col style="width:14%"></colgroup>
+<thead><tr>
+<th>Equazione</th>
+<th><span class="passo">1</span>Primo principio<small>$x$ a sinistra, numeri a destra</small></th>
+<th><span class="passo">2</span>Sommo i simili<small>in ciascun membro</small></th>
+<th><span class="passo">3</span>Secondo principio<small>divido per il coefficiente</small></th>
+<th><span class="passo">4</span>Soluzione</th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio</span><br>$5x + 4 = 2x + 19$</td><td>$5x {\color{#D7263D}{- 2x}} = 19 {\color{#D7263D}{- 4}}$<span class="perche">$2x$ va a sinistra, $4$ va a destra: cambiano segno</span></td><td>$3x = 15$<span class="perche">$5x - 2x$ e $19 - 4$</span></td><td>$\dfrac{3x}{3} = \dfrac{15}{3}$<span class="perche">divido per $3$</span></td><td>$\mathbf{x = 5}$</td></tr>
+<tr><td class="numero"><span class="lettera">a)</span><br>$3x + 4 = 22$</td><td>$3x = 22 {\color{#D7263D}{- 4}}$</td><td>$3x = 18$</td><td>$\dfrac{3x}{3} = \dfrac{18}{3}$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">b)</span><br>$7x - 5 = 3x + 11$</td><td>$7x {\color{#D7263D}{- 3x}} = 11 {\color{#D7263D}{+ 5}}$</td><td>$4x = 16$</td><td>$\dfrac{4x}{4} = \dfrac{16}{4}$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">c)</span><br>$2x + 9 = 5x - 6$</td><td>$2x {\color{#D7263D}{- 5x}} = -6 {\color{#D7263D}{- 9}}$</td><td>$-3x = -15$</td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">d)</span><br>$4 - x = 2x + 13$</td><td>$-x {\color{#D7263D}{- 2x}} = 13 {\color{#D7263D}{- 4}}$</td><td>$-3x = 9$</td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">e)</span><br>$6x - 7 = 2x + 3$</td><td>$6x {\color{#D7263D}{- 2x}} = 3 {\color{#D7263D}{+ 7}}$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">f)</span><br>$9 + 2x = 4x + 9$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">g)</span><br>$3x - 8 + x = 5x - 2$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>④ &nbsp;Con le parentesi</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <div class="regole compatte">
+            <div><h3>Prima tolgo le parentesi</h3><p>Il numero davanti alla parentesi <strong>moltiplica ogni termine</strong> dentro: $3(x - 2) = 3x - 6$.<br>Un <strong>meno</strong> davanti alla parentesi <strong>cambia il segno</strong> a tutti i termini dentro: $-(x - 3) = -x + 3$.</p></div>
+            <div><h3>Poi come prima</h3><p>Primo principio: $x$ a sinistra, numeri a destra, chi cambia membro cambia segno.<br>Sommo i simili, poi secondo principio: divido per il coefficiente della $x$.</p></div>
+        </div>
+        <p class="istruzioni">La riga verde è svolta. Nelle altre completa le caselle bianche, da sinistra a destra: riga dopo riga ne trovi sempre di più.</p>
+        <table class="passi">
+<colgroup><col style="width:25%"><col style="width:21%"><col style="width:22%"><col style="width:13%"><col style="width:19%"></colgroup>
+<thead><tr>
+<th>Equazione</th>
+<th><span class="passo">1</span>Tolgo le parentesi<small>moltiplico ogni termine</small></th>
+<th><span class="passo">2</span>Primo principio<small>$x$ a sinistra, numeri a destra</small></th>
+<th><span class="passo">3</span>Sommo i simili</th>
+<th><span class="passo">4</span>Divido e trovo $x$<small>secondo principio</small></th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio</span><br>$3(x - 2) + 4 = x + 6$</td><td>$3x - 6 + 4 = x + 6$<span class="perche">$3 \cdot x$ e $3 \cdot (-2)$</span></td><td>$3x {\color{#D7263D}{- x}} = 6 {\color{#D7263D}{+ 6}} {\color{#D7263D}{- 4}}$<span class="perche">$x$ a sinistra, $-6$ e $+4$ a destra</span></td><td>$2x = 8$</td><td>$x = \dfrac{8}{2} \;\to\; \mathbf{x = 4}$</td></tr>
+<tr><td class="numero"><span class="lettera">a)</span><br>$2(x + 3) = 16$</td><td>$2x + 6 = 16$</td><td>$2x = 16 {\color{#D7263D}{- 6}}$</td><td>$2x = 10$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">b)</span><br>$5(x - 1) = 3x + 7$</td><td>$5x - 5 = 3x + 7$</td><td>$5x {\color{#D7263D}{- 3x}} = 7 {\color{#D7263D}{+ 5}}$</td><td>$2x = 12$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">c)</span><br>$4 - (x - 3) = 2x + 1$</td><td>$4 - x + 3 = 2x + 1$<span class="perche">il meno cambia i segni dentro</span></td><td>$-x {\color{#D7263D}{- 2x}} = 1 {\color{#D7263D}{- 4}} {\color{#D7263D}{- 3}}$</td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">d)</span><br>$-2(x - 4) = x - 1$</td><td>$-2x + 8 = x - 1$<span class="perche">$(-2) \cdot (-4) = +8$</span></td><td>$-2x {\color{#D7263D}{- x}} = -1 {\color{#D7263D}{- 8}}$</td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">e)</span><br>$3(2x - 1) - 2(x + 4) = 5$</td><td>$6x - 3 - 2x - 8 = 5$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">f)</span><br>$2(3x + 1) = 4(x - 2) + 6$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">g)</span><br>$5 - 3(x + 2) = 2(1 - x)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+</body>
+</html>
