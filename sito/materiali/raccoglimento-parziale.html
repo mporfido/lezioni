@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raccoglimento parziale — Materiali</title>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="scheda.css">
+    <style>
+        /* La riga verde è l'esempio svolto, poi le caselle bianche aumentano
+           riga dopo riga. Le formule di MathJax non vanno a capo: i pezzi
+           lunghi sono in $...$ separati, così possono andare a capo fra loro. */
+        table.passi td { height: 3.4rem; }
+        table.passi td.numero { font-size: 1.1rem; }
+        table.passi td .perche { margin-top: 0.1rem; }
+        .regole { grid-template-columns: 1fr 1fr 1fr; }
+        .regole.compatte { margin-bottom: 0.6rem; gap: 0.6rem; }
+        .regole.compatte > div { padding: 0.35rem 0.7rem; }
+        .regole.compatte h3 { font-size: 0.95rem; }
+        .regole.compatte p { font-size: 0.92rem; line-height: 1.35; }
+        .istruzioni { font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 0.5rem; }
+        .lettera { font-weight: 700; margin-right: 0.4em; color: var(--ink-soft); }
+        @media screen and (max-width: 800px) { table.passi { min-width: 1000px; } }
+    </style>
+    <!-- Formule in LaTeX con MathJax, come nel resto del sito: $...$ in riga -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] },
+            chtml: { scale: 1.0 }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="comandi">
+        <a href="./">← Materiali</a>
+        <button type="button" onclick="window.print()">Scarica PDF</button>
+        <span class="nota">Nella finestra di stampa scegli «Salva come PDF»: il foglio è già orizzontale.</span>
+    </div>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Raccoglimento parziale — esempi svolti</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <div class="regole compatte">
+            <div><h3>Quando serve</h3><p>Non c'è niente in comune a <strong>tutti</strong> i termini, però a <strong>gruppi</strong> sì: di solito due a due.<br>Prima di cominciare guardo se c'è un raccoglimento totale: se c'è, lo faccio prima.</p></div>
+            <div><h3>Come si fa</h3><p><strong>Raggruppo</strong> i termini che hanno qualcosa in comune.<br><strong>Raccolgo</strong> in ogni gruppo: devono venire due parentesi <strong>uguali</strong>.<br>Raccolgo la <strong>parentesi comune</strong>: è un raccoglimento totale.</p></div>
+            <div><h3>Attenzione</h3><p>Se il secondo gruppo comincia col meno, raccolgo <strong>anche il meno</strong>: $-3x - 6 = -3(x + 2)$.<br>Se un gruppo è già la parentesi, resta $1$.<br>Parentesi diverse? Provo un altro raggruppamento.</p></div>
+        </div>
+        <p class="istruzioni">Quattro esempi: il caso base, con le potenze, con il meno davanti al secondo gruppo, con i termini da riordinare.</p>
+        <table class="passi">
+<colgroup><col style="width:22%"><col style="width:25%"><col style="width:26%"><col style="width:27%"></colgroup>
+<thead><tr>
+<th>Polinomio</th>
+<th><span class="passo">1</span>Raggruppo<small>i termini con qualcosa in comune</small></th>
+<th><span class="passo">2</span>Raccolgo in ogni gruppo<small>le due parentesi devono essere uguali</small></th>
+<th><span class="passo">3</span>Raccolgo la parentesi<small>il risultato</small></th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio 1</span><br>$ax + ay + 3x + 3y$</td><td>$(ax + ay) + (3x + 3y)$</td><td>$a(x + y) + 3(x + y)$<span class="perche">nel primo gruppo raccolgo $a$, nel secondo $3$</span></td><td>$\mathbf{{\color{#D7263D}{(x + y)}}(a + 3)}$</td></tr>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio 2</span><br>$x^3 - 2x^2 + 5x - 10$</td><td>$(x^3 - 2x^2) + (5x - 10)$</td><td>$x^2(x - 2) + 5(x - 2)$</td><td>$\mathbf{{\color{#D7263D}{(x - 2)}}(x^2 + 5)}$</td></tr>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio 3</span><br>$2ab - 6a - b + 3$</td><td>$(2ab - 6a) + (-b + 3)$</td><td>$2a(b - 3) - 1(b - 3)$<span class="perche">raccolgo $-1$: $-b + 3 = -(b - 3)$</span></td><td>$\mathbf{{\color{#D7263D}{(b - 3)}}(2a - 1)}$</td></tr>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio 4</span><br>$ax + by + bx + ay$</td><td>$(ax + ay) + (bx + by)$<span class="perche">metto vicini i termini con la stessa lettera davanti</span></td><td>$a(x + y) + b(x + y)$</td><td>$\mathbf{{\color{#D7263D}{(x + y)}}(a + b)}$</td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Raccoglimento parziale — completa tu</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <p class="istruzioni">Completa le caselle bianche, da sinistra a destra: riga dopo riga ne trovi sempre di più. Alla fine rimoltiplica e controlla di ritrovare il polinomio.</p>
+        <table class="passi">
+<colgroup><col style="width:22%"><col style="width:25%"><col style="width:26%"><col style="width:27%"></colgroup>
+<thead><tr>
+<th>Polinomio</th>
+<th><span class="passo">1</span>Raggruppo<small>i termini con qualcosa in comune</small></th>
+<th><span class="passo">2</span>Raccolgo in ogni gruppo<small>le due parentesi devono essere uguali</small></th>
+<th><span class="passo">3</span>Raccolgo la parentesi<small>il risultato</small></th>
+</tr></thead>
+<tbody>
+<tr><td class="numero"><span class="lettera">a)</span><br>$3a + 3b + ax + bx$</td><td>$(3a + 3b) + (ax + bx)$</td><td>$3(a + b) + x(a + b)$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">b)</span><br>$x^3 + 4x^2 + 2x + 8$</td><td>$(x^3 + 4x^2) + (2x + 8)$</td><td>$x^2(x + 4) + 2(x + 4)$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">c)</span><br>$6ax - 4a + 9x - 6$</td><td>$(6ax - 4a) + (9x - 6)$</td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">d)</span><br>$a^2 - ab + 5a - 5b$</td><td>$(a^2 - ab) + (5a - 5b)$</td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">e)</span><br>$xy - 3x - 2y + 6$</td><td>$(xy - 3x) + (-2y + 6)$<span class="perche">il secondo gruppo comincia col meno</span></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">f)</span><br>$2x^3 - x^2 + 6x - 3$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">g)</span><br>$ab + a - b - 1$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">h)</span><br>$10xy - 15x + 4y - 6$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Raccoglimento parziale — ora tocca a te</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <p class="istruzioni">Qui i gruppi li scegli tu. In i) e j) i termini sono in disordine: riordinali prima. In k) c'è prima un raccoglimento totale. In l) i gruppi sono di tre termini.</p>
+        <table class="passi">
+<colgroup><col style="width:22%"><col style="width:25%"><col style="width:26%"><col style="width:27%"></colgroup>
+<thead><tr>
+<th>Polinomio</th>
+<th><span class="passo">1</span>Raggruppo<small>i termini con qualcosa in comune</small></th>
+<th><span class="passo">2</span>Raccolgo in ogni gruppo<small>le due parentesi devono essere uguali</small></th>
+<th><span class="passo">3</span>Raccolgo la parentesi<small>il risultato</small></th>
+</tr></thead>
+<tbody>
+<tr><td class="numero"><span class="lettera">i)</span><br>$ax + 2y + 2x + ay$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">j)</span><br>$x^2 - 3y + xy - 3x$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">k)</span><br>$2ax + 2ay + 4bx + 4by$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">l)</span><br>$ax + bx + cx$ $+ ay + by + cy$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">m)</span><br>$x^3 + x^2 + x + 1$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">n)</span><br>$a^3 - 2a^2b + 3ab - 6b^2$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+</body>
+</html>

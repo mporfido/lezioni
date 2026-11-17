@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raccoglimento totale a fattore comune — Materiali</title>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/atkinson-hyperlegible-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="scheda.css">
+    <style>
+        /* La riga verde è l'esempio svolto, poi le caselle bianche aumentano
+           riga dopo riga. Le formule di MathJax non vanno a capo: i pezzi
+           lunghi sono in $...$ separati, così possono andare a capo fra loro. */
+        table.passi td { height: 3.4rem; }
+        table.passi td.numero { font-size: 1.1rem; }
+        table.passi td .perche { margin-top: 0.1rem; }
+        .regole { grid-template-columns: 1fr 1fr 1fr; }
+        .regole.compatte { margin-bottom: 0.6rem; gap: 0.6rem; }
+        .regole.compatte > div { padding: 0.35rem 0.7rem; }
+        .regole.compatte h3 { font-size: 0.95rem; }
+        .regole.compatte p { font-size: 0.92rem; line-height: 1.35; }
+        .istruzioni { font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 0.5rem; }
+        .lettera { font-weight: 700; margin-right: 0.4em; color: var(--ink-soft); }
+        @media screen and (max-width: 800px) { table.passi { min-width: 1000px; } }
+    </style>
+    <!-- Formule in LaTeX con MathJax, come nel resto del sito: $...$ in riga -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] },
+            chtml: { scale: 1.0 }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="comandi">
+        <a href="./">← Materiali</a>
+        <button type="button" onclick="window.print()">Scarica PDF</button>
+        <span class="nota">Nella finestra di stampa scegli «Salva come PDF»: il foglio è già orizzontale.</span>
+    </div>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Raccoglimento totale — esempi svolti</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <div class="regole compatte">
+            <div><h3>Che cosa vuol dire</h3><p>Scrivo il polinomio come un <strong>prodotto</strong>: il fattore che sta in <strong>tutti</strong> i termini, per una parentesi.<br>È la proprietà distributiva letta al contrario: $ab + ac = a(b + c)$.</p></div>
+            <div><h3>Il MCD dei termini</h3><p><strong>Numeri:</strong> il MCD dei coefficienti, senza guardare il segno.<br><strong>Lettere:</strong> solo quelle che ci sono in <strong>tutti</strong> i termini, ognuna con l'<strong>esponente più piccolo</strong>.</p></div>
+            <div><h3>Poi divido</h3><p><strong>Divido ogni termine</strong> per il MCD e metto i quozienti in parentesi: tanti termini prima, tanti in parentesi.<br>Se un termine è proprio il MCD, in parentesi resta $1$, non $0$. Controllo rimoltiplicando.</p></div>
+        </div>
+        <p class="istruzioni">Quattro esempi, uno per ogni trappola: un termine che diventa $1$, lettere che non sono dappertutto, il primo termine col meno.</p>
+        <table class="passi">
+<colgroup><col style="width:21%"><col style="width:12%"><col style="width:15%"><col style="width:11%"><col style="width:18%"><col style="width:23%"></colgroup>
+<thead><tr>
+<th>Polinomio</th>
+<th><span class="passo">1</span>Numeri<small>MCD dei coefficienti</small></th>
+<th><span class="passo">2</span>Lettere<small>comuni, esponente minore</small></th>
+<th><span class="passo">3</span>MCD<small>il fattore comune</small></th>
+<th><span class="passo">4</span>Divido<small>ogni termine per il MCD</small></th>
+<th><span class="passo">5</span>Risultato<small>MCD per la parentesi</small></th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio 1</span><br>$6x^2 + 9x$</td><td>$3$<span class="perche">MCD fra $6$ e $9$</span></td><td>$x$<span class="perche">fra $x^2$ e $x$ vince l'esponente $1$</span></td><td>$3x$</td><td>$2x$, &nbsp;$+3$<span class="perche">$6x^2 : 3x = 2x$<br>$9x : 3x = 3$</span></td><td>$\mathbf{{\color{#D7263D}{3x}}(2x + 3)}$</td></tr>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio 2</span><br>$12a^3b^2 - 18a^2b^3$ $+ 6a^2b$</td><td>$6$<span class="perche">MCD fra $12$, $18$ e $6$</span></td><td>$a^2b$<span class="perche">$a$: esponenti $3, 2, 2$<br>$b$: esponenti $2, 3, 1$</span></td><td>$6a^2b$</td><td>$2ab$, &nbsp;$-3b^2$, &nbsp;$+1$<span class="perche">l'ultimo termine è proprio il MCD: resta $1$</span></td><td>$\mathbf{{\color{#D7263D}{6a^2b}}(2ab - 3b^2 + 1)}$</td></tr>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio 3</span><br>$8x^2y - 12xz$</td><td>$4$<span class="perche">MCD fra $8$ e $12$</span></td><td>$x$<span class="perche">$y$ e $z$ non sono in tutti e due i termini</span></td><td>$4x$</td><td>$2xy$, &nbsp;$-3z$<span class="perche">$8x^2y : 4x = 2xy$<br>$-12xz : 4x = -3z$</span></td><td>$\mathbf{{\color{#D7263D}{4x}}(2xy - 3z)}$</td></tr>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio 4</span><br>$-10x^4y + 15x^2y^2$</td><td>$5$<span class="perche">il primo termine ha il meno: raccolgo $-5$</span></td><td>$x^2y$</td><td>$-5x^2y$</td><td>$2x^2$, &nbsp;$-3y$<span class="perche">dividendo per un negativo i segni si invertono</span></td><td>$\mathbf{{\color{#D7263D}{-5x^2y}}(2x^2 - 3y)}$<span class="perche">va bene anche $5x^2y(-2x^2 + 3y)$</span></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Raccoglimento totale — completa tu</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <p class="istruzioni">Completa le caselle bianche, da sinistra a destra: riga dopo riga ne trovi sempre di più. Alla fine rimoltiplica e controlla di ritrovare il polinomio.</p>
+        <table class="passi">
+<colgroup><col style="width:21%"><col style="width:12%"><col style="width:15%"><col style="width:11%"><col style="width:18%"><col style="width:23%"></colgroup>
+<thead><tr>
+<th>Polinomio</th>
+<th><span class="passo">1</span>Numeri<small>MCD dei coefficienti</small></th>
+<th><span class="passo">2</span>Lettere<small>comuni, esponente minore</small></th>
+<th><span class="passo">3</span>MCD<small>il fattore comune</small></th>
+<th><span class="passo">4</span>Divido<small>ogni termine per il MCD</small></th>
+<th><span class="passo">5</span>Risultato<small>MCD per la parentesi</small></th>
+</tr></thead>
+<tbody>
+<tr><td class="numero"><span class="lettera">a)</span><br>$5x + 15$</td><td>$5$</td><td>nessuna<span class="perche">il $15$ non ha lettere</span></td><td>$5$</td><td>$x$, &nbsp;$+3$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">b)</span><br>$8a^2 - 12a$</td><td>$4$</td><td>$a$</td><td>$4a$</td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">c)</span><br>$14x^3 + 21x^2$</td><td>$7$</td><td>$x^2$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">d)</span><br>$9a^2b - 6ab^2 + 3ab$</td><td>$3$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">e)</span><br>$20x^3y^2 + 30x^2y^3$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">f)</span><br>$x^5 - x^3 + x^2$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">g)</span><br>$-12a^4 + 8a^3 - 4a^2$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">h)</span><br>$16x^2y^3z - 24xy^4$ $+ 40x^3y^2$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+
+    <section class="foglio">
+        <div class="intestazione">
+            <h1>Raccoglimento totale — quando il fattore comune è una parentesi</h1>
+            <span class="nome">Nome ______________________ &nbsp; Data __________</span>
+        </div>
+        <div class="regole compatte" style="grid-template-columns: 1fr 1fr;">
+            <div><h3>La parentesi è un fattore come gli altri</h3><p>In $3x\,(a + 2) + 5\,(a + 2)$ la stessa parentesi $(a + 2)$ sta in tutti e due i termini: la raccolgo come se fosse una lettera.<br>Davanti resta la parentesi, dentro la nuova parentesi va <strong>quello che resta</strong> di ogni termine.</p></div>
+            <div><h3>Due attenzioni</h3><p>$-(x - y)$ vuol dire $-1 \cdot (x - y)$: quello che resta è $-1$.<br>Se oltre alla parentesi c'è in comune anche un numero o una lettera, raccolgo <strong>anche quelli</strong>.</p></div>
+        </div>
+        <p class="istruzioni">Le righe verdi sono svolte. Nelle altre completa le caselle bianche.</p>
+        <table class="passi">
+<colgroup><col style="width:28%"><col style="width:20%"><col style="width:22%"><col style="width:30%"></colgroup>
+<thead><tr>
+<th>Polinomio</th>
+<th><span class="passo">1</span>Fattore comune<small>la parentesi, e se c'è altro anche quello</small></th>
+<th><span class="passo">2</span>Quello che resta<small>di ogni termine</small></th>
+<th><span class="passo">3</span>Risultato</th>
+</tr></thead>
+<tbody>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio 1</span><br>$3x(a + 2) + 5(a + 2)$</td><td>$(a + 2)$</td><td>$3x$, &nbsp;$+5$</td><td>$\mathbf{{\color{#D7263D}{(a + 2)}}(3x + 5)}$</td></tr>
+<tr class="esempio"><td class="numero"><span class="lettera">Esempio 2</span><br>$2a(x - y) - (x - y)$</td><td>$(x - y)$</td><td>$2a$, &nbsp;$-1$<span class="perche">$-(x - y) = -1 \cdot (x - y)$</span></td><td>$\mathbf{{\color{#D7263D}{(x - y)}}(2a - 1)}$</td></tr>
+<tr><td class="numero"><span class="lettera">a)</span><br>$a(x - 1) + b(x - 1)$</td><td>$(x - 1)$</td><td>$a$, &nbsp;$+b$</td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">b)</span><br>$2y(x + 3) - 5(x + 3)$</td><td>$(x + 3)$</td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">c)</span><br>$x(a - b) + (a - b)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">d)</span><br>$x^2(y + 1) + x(y + 1)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">e)</span><br>$4a(2x + y) - 6b(2x + y)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+<tr><td class="numero"><span class="lettera">f)</span><br>$5x^2(a + b) - 10x(a + b)$</td><td class="vuoto"></td><td class="vuoto"></td><td class="vuoto"></td></tr>
+</tbody>
+        </table>
+    </section>
+</body>
+</html>
